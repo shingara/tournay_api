@@ -8,4 +8,5 @@ gem 'rake', :require => false
 
 group :test, :development do
   gem 'rspec-rails', :require => false
+  gem 'mongoid-rspec', :require => false
 end
