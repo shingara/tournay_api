@@ -4,4 +4,8 @@ gem 'railties', :require => false
 gem 'rails-api', :require => false
 
 gem 'json', :require => false
-gem 'rake'
+gem 'rake', :require => false
+
+group :test, :development do
+  gem 'rspec-rails', :require => false
+end
