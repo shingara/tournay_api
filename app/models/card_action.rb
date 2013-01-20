@@ -3,14 +3,38 @@ require 'equalizer'
 
 class CardAction
   include Virtus
-  include ::Equalizer.new(:effect, :color_effect, :around)
+  include ::Equalizer.new(:color_effect, :around, :in_activate,
+                         :in_place, :on_people, :on_building, :win, :denier)
 
-  attribute :effect, String
-  attribute :color_effect, String
+  attribute :color_effect, Color
   attribute :around, Boolean
+  attribute :in_activate, Boolean, :default => false
+  attribute :in_place, Boolean, :default => false
+  attribute :on_people, Boolean, :default => false
+  attribute :on_building, Boolean, :default => false
+  attribute :win, Boolean, :default => false
+  attribute :denier, Integer, :default => 0
 
   def mongoize
-    attributes
+    {
+      :color_effect => color_effect.color,
+      :around => around,
+      :in_activate => in_activate,
+      :in_place => in_place,
+      :on_people => on_people,
+      :on_building => on_building,
+      :win => win,
+      :denier => denier
+    }
+  end
+
+  def color=(col)
+    case col
+    when Integer
+      @color = Color.new(col)
+    else
+      super(col)
+    end
   end
 
   class << self
@@ -20,7 +44,7 @@ class CardAction
       when self
         object.mongoize
       else
-        self.new(object)
+        object
       end
     end
 

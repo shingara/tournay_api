@@ -5,3 +5,22 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:red),
+  :victory_point => 1,
+  :name => 'Architecte',
+  :active => false,
+  :card_type => 'people',
+  :action => CardAction.new(
+    :color_effect => Color.new(:grey),
+    :around => true,
+    :in_activate => false,
+    :in_place => true,
+    :on_people => false,
+    :on_building => true,
+    :win => true,
+    :denier => 1
+  )
+})
