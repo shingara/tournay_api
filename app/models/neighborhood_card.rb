@@ -4,6 +4,7 @@ class NeighborhoodCard
   field :color, :type => Color
   field :victory_point, :type => Integer
   field :cost, :type => Integer
+  field :level, :type => Integer
   field :name, :type => String
   field :active, :type => Boolean, :default => false
   field :action, :type => CardAction

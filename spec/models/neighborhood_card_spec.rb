@@ -8,6 +8,7 @@ describe NeighborhoodCard do
 
   it { should have_field(:color).of_type(Color) }
   it { should have_field(:victory_point).of_type(Integer) }
+  it { should have_field(:level).of_type(Integer) }
   it { should have_field(:cost).of_type(Integer) }
   it { should have_field(:name).of_type(String) }
   it { should have_field(:active).of_type(Boolean).with_default_value_of(false) }

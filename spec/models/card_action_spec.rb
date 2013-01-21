@@ -10,6 +10,8 @@ describe CardAction do
   it { should have_attributes(:on_building) }
   it { should have_attributes(:win) }
   it { should have_attributes(:denier) }
+  it { should have_attributes(:cost) }
+  it { should have_attributes(:buy) }
 
   let(:card_action) { CardAction.new(
     :color_effect => Color.new(:grey),
@@ -19,7 +21,9 @@ describe CardAction do
     :on_people => false,
     :on_building => true,
     :win => true,
-    :denier => 1
+    :denier => 1,
+    :cost => false,
+    :buy => ''
   )}
 
   let(:card_action_document) {{
@@ -30,7 +34,9 @@ describe CardAction do
     :on_people => false,
     :on_building => true,
     :win => true,
-    :denier => 1
+    :denier => 1,
+    :cost => false,
+    :buy => ''
   }}
 
   describe "#mongoize" do

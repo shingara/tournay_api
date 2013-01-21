@@ -8,8 +8,9 @@
 
 NeighborhoodCard.create!({
   :cost => 1,
-  :color => Color.new(:red),
+  :color => Color.new(:yellow),
   :victory_point => 1,
+  :level => 1,
   :name => 'Architecte',
   :active => false,
   :card_type => 'people',
@@ -22,5 +23,47 @@ NeighborhoodCard.create!({
     :on_building => true,
     :win => true,
     :denier => 1
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:yellow),
+  :victory_point => 1,
+  :level => 1,
+  :name => 'Echevin',
+  :active => false,
+  :card_type => 'people',
+  :action => CardAction.new(
+    :color_effect => Color.new(:grey),
+    :around => true,
+    :in_activate => false,
+    :in_place => true,
+    :on_people => true,
+    :on_building => false,
+    :win => true,
+    :denier => 2
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:yellow),
+  :victory_point => 1,
+  :level => 1,
+  :name => 'Habitation',
+  :active => false,
+  :card_type => 'building',
+  :action => CardAction.new(
+    :color_effect => Color.new(:yellow),
+    :around => false,
+    :in_activate => false,
+    :in_place => false,
+    :on_people => false,
+    :on_building => false,
+    :win => false,
+    :denier => 3,
+    :cost => true,
+    :buy => :citizen
   )
 })

@@ -14,6 +14,8 @@ class CardAction
   attribute :on_building, Boolean, :default => false
   attribute :win, Boolean, :default => false
   attribute :denier, Integer, :default => 0
+  attribute :cost, Boolean, :default => false
+  attribute :buy, String
 
   def mongoize
     {
@@ -24,7 +26,9 @@ class CardAction
       :on_people => on_people,
       :on_building => on_building,
       :win => win,
-      :denier => denier
+      :denier => denier,
+      :cost => cost,
+      :buy => buy
     }
   end
 
