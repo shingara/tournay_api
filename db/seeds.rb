@@ -12,7 +12,6 @@ NeighborhoodCard.create!({
   :victory_point => 1,
   :level => 1,
   :name => 'Architecte',
-  :active => false,
   :card_type => 'people',
   :action => CardAction.new(
     :color_effect => Color.new(:grey),
@@ -32,7 +31,6 @@ NeighborhoodCard.create!({
   :victory_point => 1,
   :level => 1,
   :name => 'Echevin',
-  :active => false,
   :card_type => 'people',
   :action => CardAction.new(
     :color_effect => Color.new(:grey),
@@ -52,7 +50,6 @@ NeighborhoodCard.create!({
   :victory_point => 1,
   :level => 1,
   :name => 'Habitation',
-  :active => false,
   :card_type => 'building',
   :action => CardAction.new(
     :color_effect => Color.new(:yellow),

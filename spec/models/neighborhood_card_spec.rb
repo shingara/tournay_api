@@ -2,8 +2,6 @@ require 'models/spec_helper'
 
 describe NeighborhoodCard do
 
-  it { should be_embedded_in(:player_in_game) }
-
   it { should have_field(:action).of_type(CardAction) }
 
   it { should have_field(:color).of_type(Color) }
@@ -11,7 +9,6 @@ describe NeighborhoodCard do
   it { should have_field(:level).of_type(Integer) }
   it { should have_field(:cost).of_type(Integer) }
   it { should have_field(:name).of_type(String) }
-  it { should have_field(:active).of_type(Boolean).with_default_value_of(false) }
   it { should have_field(:card_type).of_type(String) }
 
 
