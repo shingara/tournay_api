@@ -14,5 +14,11 @@ group :test, :development do
   gem 'rspec-rails', :require => false
   gem 'mongoid-rspec', :require => false
   gem 'virtus-rspec', :require => false
+end
 
+group :development do
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
+  gem 'guard-rspec', :require => false
 end
