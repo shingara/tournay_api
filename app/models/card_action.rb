@@ -7,15 +7,28 @@ class CardAction
                          :in_place, :on_people, :on_building, :win, :denier)
 
   attribute :color_effect, Color
+  attribute :action, String
+
   attribute :around, Boolean
+
   attribute :in_activate, Boolean, :default => false
   attribute :in_place, Boolean, :default => false
+
   attribute :on_people, Boolean, :default => false
   attribute :on_building, Boolean, :default => false
+
   attribute :win, Boolean, :default => false
+
   attribute :denier, Integer, :default => 0
   attribute :cost, Boolean, :default => false
-  attribute :buy, String
+
+  attribute :copy_action_not_activate, Boolean, :default => false
+  attribute :get_back_citizen_in_place, Boolean, :default => false
+  attribute :get_one_card_on, Integer, :default => 0
+  attribute :get_two_card_on, Integer, :default => 0
+  attribute :get_new_citizen, Boolean, :default => false
+  attribute :on_empty_neighborhood, Boolean, :default => false
+  attribute :twice_activate, Boolean, :default => false
 
   def mongoize
     {
@@ -28,7 +41,13 @@ class CardAction
       :win => win,
       :denier => denier,
       :cost => cost,
-      :buy => buy
+      :copy_action_not_activate => copy_action_not_activate,
+      :get_back_citizen_in_place => get_back_citizen_in_place,
+      :get_one_card_on => get_one_card_on,
+      :get_two_card_on => get_two_card_on,
+      :get_new_citizen => get_new_citizen,
+      :on_empty_neighborhood => on_empty_neighborhood,
+      :twice_activate => twice_activate,
     }
   end
 

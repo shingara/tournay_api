@@ -55,15 +55,8 @@ NeighborhoodCard.create!({
   :card_type => 'building',
   :action => CardAction.new(
     :color_effect => Color.new(:yellow),
-    :around => false,
-    :in_activate => false,
-    :in_place => false,
-    :on_people => false,
-    :on_building => false,
-    :win => false,
+    :get_new_citizen => true
     :denier => 3,
-    :cost => true,
-    :buy => :citizen
   )
 })
 
@@ -84,7 +77,6 @@ NeighborhoodCard.create!({
     :win => true,
     :denier => 4,
     :cost => false,
-    :buy => :nothing
   )
 })
 
@@ -97,15 +89,10 @@ NeighborhoodCard.create!({
   :card_type => 'building',
   :action => CardAction.new(
     :color_effect => nil,
-    :around => false,
-    :in_activate => false,
-    :in_place => false,
-    :on_people => false,
-    :on_building => false,
     :win => true,
     :denier => 1,
     :cost => false,
-    :buy => :empty_neighborhood
+    :on_empty_neighborhood => true
   )
 })
 
@@ -126,7 +113,6 @@ NeighborhoodCard.create!({
     :win => true,
     :denier => 5,
     :cost => false,
-    :buy => :nothing
   )
 })
 
@@ -141,13 +127,9 @@ NeighborhoodCard.create!({
     :color_effect => Color.new(:grey),
     :around => true,
     :in_activate => true,
-    :in_place => false,
-    :on_people => false,
     :on_building => true,
     :win => true,
     :denier => 1,
-    :cost => false,
-    :buy => :nothing
   )
 })
 
@@ -160,15 +142,7 @@ NeighborhoodCard.create!({
   :card_type => 'building',
   :action => CardAction.new(
     :color_effect => Color.new(:yellow),
-    :around => false,
-    :in_activate => false,
-    :in_place => false,
-    :on_people => false,
-    :on_building => false,
-    :win => true,
-    :denier => 0,
-    :cost => false,
-    :buy => :one_card_level_2
+    :get_one_card_on => 2
   )
 })
 
@@ -181,15 +155,7 @@ NeighborhoodCard.create!({
   :card_type => 'building',
   :action => CardAction.new(
     :color_effect => Color.new(:yellow),
-    :around => false,
-    :in_activate => false,
-    :in_place => false,
-    :on_people => false,
-    :on_building => false,
-    :win => true,
-    :denier => 0,
-    :cost => false,
-    :buy => :copy_building_not_activate
+    :copy_action_not_activate => true
   )
 })
 
@@ -204,15 +170,134 @@ NeighborhoodCard.create!({
   :card_type => 'building',
   :action => CardAction.new(
     :color_effect => Color.new(:grey),
-    :around => false,
-    :in_activate => false,
-    :in_place => false,
-    :on_people => false,
-    :on_building => false,
+    :get_one_card_on => 2
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:white),
+  :victory_point => 1,
+  :level => 1,
+  :name => 'Eveque',
+  :card_type => 'people',
+  :action => CardAction.new(
+    :color_effect => Color.new(:white),
+    :get_back_citizen_in_place => true,
+    :around => true,
+    :in_activate => true,
+    :on_building > true,
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:white),
+  :victory_point => 0,
+  :level => 1,
+  :name => 'Pont',
+  :card_type => 'building',
+  :action => CardAction.new(
+    :color_effect => Color.new(:grey),
+    :copy_action_not_activate => true,
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:white),
+  :victory_point => 0,
+  :level => 1,
+  :name => 'Bibliotheque',
+  :card_type => 'building',
+  :action => CardAction.new(
+    :color_effect => Color.new(:grey),
+    :get_two_card_on => 1,
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:white),
+  :victory_point => 0,
+  :level => 1,
+  :name => 'Bibliotheque',
+  :card_type => 'building',
+  :action => CardAction.new(
+    :color_effect => Color.new(:grey),
+    :get_two_card_on => 1,
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:white),
+  :victory_point => 1,
+  :level => 1,
+  :name => 'Hopital',
+  :card_type => 'building',
+  :action => CardAction.new(
+    :color_effect => nil,
+    :denier => 4,
+    :win => true
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:white),
+  :victory_point => 1,
+  :level => 1,
+  :name => 'Pretre',
+  :card_type => 'people',
+  :action => CardAction.new(
+    :color_effect => Color.new(:white),
+    :around => true,
+    :twice_activate => true
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:white),
+  :victory_point => 0,
+  :level => 1,
+  :name => 'Eveché',
+  :card_type => 'building',
+  :action => CardAction.new(
+    :color_effect => Color.new(:white),
+    :get_two_card_on => 2
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:white),
+  :victory_point => 0,
+  :level => 1,
+  :name => 'Monastere',
+  :card_type => 'building',
+  :action => CardAction.new(
+    :color_effect => Color.new(:grey),
+    :get_new_citizen => true
+    :denier => 3,
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:white),
+  :victory_point => 0,
+  :level => 1,
+  :name => 'Prieur',
+  :card_type => 'people',
+  :action => CardAction.new(
+    :color_effect => Color.new(:grey),
+    :around => true,
+    :in_activate => true,
+    :on_building => true,
     :win => true,
-    :denier => 0,
-    :cost => false,
-    :buy => :one_card_level_2
+    :denier => 2
   )
 })
 

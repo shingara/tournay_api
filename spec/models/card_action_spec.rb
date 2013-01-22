@@ -11,7 +11,13 @@ describe CardAction do
   it { should have_attributes(:win) }
   it { should have_attributes(:denier) }
   it { should have_attributes(:cost) }
-  it { should have_attributes(:buy) }
+  it { should have_attributes(:copy_action_not_activate) }
+  it { should have_attributes(:get_back_citizen_in_place) }
+  it { should have_attributes(:get_one_card_on) }
+  it { should have_attributes(:get_two_card_on) }
+  it { should have_attributes(:get_new_citizen) }
+  it { should have_attributes(:on_empty_neighborhood) }
+  it { should have_attributes(:twice_activate) }
 
   let(:card_action) { CardAction.new(
     :color_effect => Color.new(:grey),
@@ -23,7 +29,13 @@ describe CardAction do
     :win => true,
     :denier => 1,
     :cost => false,
-    :buy => ''
+    :copy_action_not_activate => false,
+    :get_back_citizen_in_place => false,
+    :get_one_card_on => 0,
+    :get_two_card_on => 0,
+    :get_new_citizen => false,
+    :on_empty_neighborhood => false,
+    :twice_activate => false,
   )}
 
   let(:card_action_document) {{
@@ -36,7 +48,13 @@ describe CardAction do
     :win => true,
     :denier => 1,
     :cost => false,
-    :buy => ''
+    :copy_action_not_activate => false,
+    :get_back_citizen_in_place => false,
+    :get_one_card_on => 0,
+    :get_two_card_on => 0,
+    :get_new_citizen => false,
+    :on_empty_neighborhood => false,
+    :twice_activate => false,
   }}
 
   describe "#mongoize" do
