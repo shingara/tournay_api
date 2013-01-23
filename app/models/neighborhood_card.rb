@@ -11,8 +11,6 @@ class NeighborhoodCard
 
   field :action, :type => CardAction
 
-  validates_uniqueness_of :name
-
   def people?
     card_type == 'people'
   end

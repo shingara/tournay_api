@@ -22,3 +22,7 @@ group :development do
   gem 'rb-fchange', :require => false
   gem 'guard-rspec', :require => false
 end
+
+group :test do
+  gem 'database_cleaner', :require => false
+end

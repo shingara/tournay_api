@@ -3,13 +3,14 @@ require 'equalizer'
 
 class CardAction
   include Virtus
-  include ::Equalizer.new(:color_effect, :around, :in_activate,
+  include ::Equalizer.new(:color_effect, :second_color_effect, :around, :in_activate,
                          :in_place, :on_people, :on_building, :win, :denier)
 
   attribute :color_effect, Color
+  attribute :second_color_effect, Color
   attribute :action, String
 
-  attribute :around, Boolean
+  attribute :around, Boolean, :default => false
 
   attribute :in_activate, Boolean, :default => false
   attribute :in_place, Boolean, :default => false
@@ -33,7 +34,8 @@ class CardAction
 
   def mongoize
     {
-      :color_effect => color_effect.color,
+      :color_effect => color_effect ? color_effect.color : nil ,
+      :second_color_effect => second_color_effect ? second_color_effect.color : nil,
       :around => around,
       :in_activate => in_activate,
       :in_place => in_place,

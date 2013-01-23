@@ -3,6 +3,7 @@ require 'models/spec_helper'
 describe CardAction do
 
   it { should have_attributes(:color_effect) }
+  it { should have_attributes(:second_color_effect) }
   it { should have_attributes(:around) }
   it { should have_attributes(:in_activate) }
   it { should have_attributes(:in_place) }
@@ -22,6 +23,7 @@ describe CardAction do
 
   let(:card_action) { CardAction.new(
     :color_effect => Color.new(:grey),
+    :second_color_effect => nil,
     :around => true,
     :in_activate => false,
     :in_place => true,
@@ -41,6 +43,7 @@ describe CardAction do
 
   let(:card_action_document) {{
     :color_effect => 4,
+    :second_color_effect => nil,
     :around => true,
     :in_activate => false,
     :in_place => true,
@@ -62,6 +65,21 @@ describe CardAction do
   describe "#mongoize" do
     it 'return a Integer' do
       card_action.mongoize.should == card_action_document
+    end
+    context "without color" do
+      let(:card_action) { CardAction.new({:color_effect => nil}) }
+      it 'hello' do
+        expect(card_action.mongoize).to eq(
+          card_action_document.merge(
+            :color_effect => nil,
+            :around => false,
+            :in_place => false,
+            :on_building => false,
+            :win => false,
+            :denier => 0
+          )
+        )
+      end
     end
   end
 

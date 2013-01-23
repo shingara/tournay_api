@@ -1,3 +1,5 @@
+# encoding: utf-8
+#
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -55,7 +57,7 @@ NeighborhoodCard.create!({
   :card_type => 'building',
   :action => CardAction.new(
     :color_effect => Color.new(:yellow),
-    :get_new_citizen => true
+    :get_new_citizen => true,
     :denier => 3,
   )
 })
@@ -186,7 +188,7 @@ NeighborhoodCard.create!({
     :get_back_citizen_in_place => true,
     :around => true,
     :in_activate => true,
-    :on_building > true,
+    :on_building => true,
   )
 })
 
@@ -208,7 +210,7 @@ NeighborhoodCard.create!({
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 1,
-  :name => 'Bibliotheque',
+  :name => 'Bibliothéque',
   :card_type => 'building',
   :action => CardAction.new(
     :color_effect => Color.new(:grey),
@@ -221,7 +223,7 @@ NeighborhoodCard.create!({
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 1,
-  :name => 'Bibliotheque',
+  :name => 'Bibliothéque',
   :card_type => 'building',
   :action => CardAction.new(
     :color_effect => Color.new(:grey),
@@ -279,7 +281,7 @@ NeighborhoodCard.create!({
   :card_type => 'building',
   :action => CardAction.new(
     :color_effect => Color.new(:grey),
-    :get_new_citizen => true
+    :get_new_citizen => true,
     :denier => 3,
   )
 })
@@ -340,6 +342,22 @@ NeighborhoodCard.create!({
   :action => CardAction.new(
     :color_effect => Color.new(:red),
     :against_event_fill => 1
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:red),
+  :victory_point => 1,
+  :level => 1,
+  :name => 'Avoué',
+  :card_type => 'people',
+  :action => CardAction.new(
+    :color_effect => Color.new(:yellow),
+    :second_color_effect => Color.new(:white),
+    :around => true,
+    :in_place => true,
+    :on_building => true
   )
 })
 
