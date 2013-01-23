@@ -1,6 +1,6 @@
 language: ruby
 before_install: gem install bundler
-script: "bundle exec rake spec"
+script: "bundle exec rspec spec"
 services: mongodb
 rvm:
   - 1.9.3
