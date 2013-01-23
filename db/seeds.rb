@@ -301,3 +301,45 @@ NeighborhoodCard.create!({
   )
 })
 
+# Red card level 1
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:red),
+  :victory_point => 1,
+  :level => 1,
+  :name => 'Arsenal',
+  :card_type => 'building',
+  :action => CardAction.new(
+    :color_effect => Color.new(:red),
+    :get_one_card_on => 2
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:red),
+  :victory_point => 1,
+  :level => 1,
+  :name => 'Caserne',
+  :card_type => 'building',
+  :action => CardAction.new(
+    :color_effect => Color.new(:red),
+    :get_new_citizen => true,
+    :denier => 3
+  )
+})
+
+NeighborhoodCard.create!({
+  :cost => 1,
+  :color => Color.new(:red),
+  :victory_point => 1,
+  :level => 1,
+  :name => 'Port',
+  :card_type => 'building',
+  :action => CardAction.new(
+    :color_effect => Color.new(:red),
+    :against_event_fill => 1
+  )
+})
+

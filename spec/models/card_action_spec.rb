@@ -18,6 +18,7 @@ describe CardAction do
   it { should have_attributes(:get_new_citizen) }
   it { should have_attributes(:on_empty_neighborhood) }
   it { should have_attributes(:twice_activate) }
+  it { should have_attributes(:against_event_fill) }
 
   let(:card_action) { CardAction.new(
     :color_effect => Color.new(:grey),
@@ -55,6 +56,7 @@ describe CardAction do
     :get_new_citizen => false,
     :on_empty_neighborhood => false,
     :twice_activate => false,
+    :against_event_fill => 0
   }}
 
   describe "#mongoize" do

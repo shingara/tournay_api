@@ -29,6 +29,7 @@ class CardAction
   attribute :get_new_citizen, Boolean, :default => false
   attribute :on_empty_neighborhood, Boolean, :default => false
   attribute :twice_activate, Boolean, :default => false
+  attribute :against_event_fill, Integer, :default => 0
 
   def mongoize
     {
@@ -48,6 +49,7 @@ class CardAction
       :get_new_citizen => get_new_citizen,
       :on_empty_neighborhood => on_empty_neighborhood,
       :twice_activate => twice_activate,
+      :against_event_fill => against_event_fill,
     }
   end
 
