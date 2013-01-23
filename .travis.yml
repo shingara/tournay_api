@@ -1,0 +1,16 @@
+language: ruby
+before_install: gem install bundler
+script: "bundle exec rake spec"
+services: mongodb
+rvm:
+  - 1.9.3
+  - 2.0.0
+  - jruby-19mode
+  - jruby-head
+  - rbx-19mode
+  - ruby-head
+matrix:
+  allow_failures:
+    - rvm:
+      - jruby-head
+      - ruby-head
