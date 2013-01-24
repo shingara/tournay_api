@@ -1,9 +1,11 @@
 require 'virtus'
 require 'equalizer'
+require 'adamantium'
 
 class Color
 
   include Equalizer.new(:color)
+  include Adamantium
 
   def initialize(color)
     case color

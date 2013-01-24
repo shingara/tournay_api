@@ -17,16 +17,12 @@ NeighborhoodCard.create!({
   :level => 1,
   :name => 'Architecte',
   :card_type => 'people',
-  # :action => CardAction.new(
-  #   :color_effect => Color.new(:grey),
-  #   :around => true,
-  #   :in_activate => false,
-  #   :in_place => true,
-  #   :on_people => false,
-  #   :on_building => true,
-  #   :win => true,
-  #   :denier => 1
-  # )
+  :when => When::InPlaceAround.new(
+    :building => true,
+    :prestige => true,
+    :colors => [ Color.new(:grey) ]
+  ),
+  :action => Actions::GetDenier.new(:num => 1)
 })
 
 NeighborhoodCard.create!({
@@ -36,16 +32,11 @@ NeighborhoodCard.create!({
   :level => 1,
   :name => 'Echevin',
   :card_type => 'people',
-  # :action => CardAction.new(
-  #   :color_effect => Color.new(:grey),
-  #   :around => true,
-  #   :in_activate => false,
-  #   :in_place => true,
-  #   :on_people => true,
-  #   :on_building => false,
-  #   :win => true,
-  #   :denier => 2
-  # )
+  :when => When::InPlaceAround.new(
+    :people => true,
+    :colors => [ Color.new(:grey) ]
+  ),
+  :action => Actions::GetDenier.new(:num => 2)
 })
 
 NeighborhoodCard.create!({
@@ -56,11 +47,10 @@ NeighborhoodCard.create!({
   :name => 'Habitation',
   :card_type => 'building',
   :when => When::InActivate.new,
-  # :action => CardAction.new(
-  #   :color_effect => Color.new(:yellow),
-  #   :get_new_citizen => true,
-  #   :denier => 3,
-  # )
+  :action => Actions::GetCitizen.new(
+    :cost => 3,
+    :color => Color.new(:yellow)
+  )
 })
 
 NeighborhoodCard.create!({
@@ -70,17 +60,8 @@ NeighborhoodCard.create!({
   :level => 1,
   :name => 'Carrière',
   :card_type => 'building',
-  # :action => CardAction.new(
-  #   :color_effect => nil,
-  #   :around => false,
-  #   :in_activate => false,
-  #   :in_place => false,
-  #   :on_people => false,
-  #   :on_building => false,
-  #   :win => true,
-  #   :denier => 4,
-  #   :cost => false,
-  # )
+  :when => When::InActivate.new,
+  :action => Actions::GetDenier.new(:num => 4)
 })
 
 NeighborhoodCard.create!({
@@ -107,17 +88,8 @@ NeighborhoodCard.create!({
   :level => 1,
   :name => 'Marché',
   :card_type => 'building',
-  # :action => CardAction.new(
-  #   :color_effect => nil,
-  #   :around => false,
-  #   :in_activate => false,
-  #   :in_place => false,
-  #   :on_people => false,
-  #   :on_building => false,
-  #   :win => true,
-  #   :denier => 5,
-  #   :cost => false,
-  # )
+  :when => When::InActivate.new,
+  :action => Actions::GetDenier.new(:num => 5)
 })
 
 NeighborhoodCard.create!({
@@ -247,11 +219,7 @@ NeighborhoodCard.create!({
   :name => 'Hopital',
   :card_type => 'building',
   :when => When::InActivate.new,
-  # :action => CardAction.new(
-  #   :color_effect => nil,
-  #   :denier => 4,
-  #   :win => true
-  # )
+  :action => Actions::GetDenier.new(:num => 4)
 })
 
 NeighborhoodCard.create!({
@@ -290,11 +258,10 @@ NeighborhoodCard.create!({
   :name => 'Monastere',
   :card_type => 'building',
   :when => When::InActivate.new,
-  # :action => CardAction.new(
-  #   :color_effect => Color.new(:grey),
-  #   :get_new_citizen => true,
-  #   :denier => 3,
-  # )
+  :action => Actions::GetCitizen.new(
+    :cost => 3,
+    :color => Color.new(:grey)
+  )
 })
 
 NeighborhoodCard.create!({
@@ -338,11 +305,10 @@ NeighborhoodCard.create!({
   :name => 'Caserne',
   :card_type => 'building',
   :when => When::InActivate.new,
-  # :action => CardAction.new(
-  #   :color_effect => Color.new(:red),
-  #   :get_new_citizen => true,
-  #   :denier => 3
-  # )
+  :action => Actions::GetCitizen.new(
+    :cost => 3,
+    :color => Color.new(:red)
+  )
 })
 
 NeighborhoodCard.create!({
@@ -366,13 +332,11 @@ NeighborhoodCard.create!({
   :level => 1,
   :name => 'Avoué',
   :card_type => 'people',
-  # :action => CardAction.new(
-  #   :color_effect => Color.new(:yellow),
-  #   :second_color_effect => Color.new(:white),
-  #   :around => true,
-  #   :in_place => true,
-  #   :on_building => true
-  # )
+  :when => When::InPlaceAround.new(
+    :building => true,
+    :colors => [ Color.new(:white), Color.new(:yellow) ]
+  ),
+  :action => Actions::GetDenier.new(:num => 2)
 })
 
 NeighborhoodCard.create!({
@@ -415,7 +379,7 @@ NeighborhoodCard.create!({
   :level => 1,
   :name => 'Baliste',
   :card_type => 'building',
+  :when => When::InActivate.new,
   :action => Actions::PutDenierOnEvent.new(:num => 2),
-  :when => When::InActivate.new
 })
 

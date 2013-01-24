@@ -9,6 +9,7 @@ describe CardAction do
   it { should have_attributes(:in_place) }
   it { should have_attributes(:on_people) }
   it { should have_attributes(:on_building) }
+  it { should have_attributes(:on_prestige) }
   it { should have_attributes(:win) }
   it { should have_attributes(:denier) }
   it { should have_attributes(:cost) }
@@ -20,6 +21,7 @@ describe CardAction do
   it { should have_attributes(:on_empty_neighborhood) }
   it { should have_attributes(:twice_activate) }
   it { should have_attributes(:against_event_fill) }
+  it { should have_attributes(:get_event_denier) }
 
   let(:card_action) { CardAction.new(
     :color_effect => Color.new(:grey),
@@ -49,6 +51,7 @@ describe CardAction do
     :in_place => true,
     :on_people => false,
     :on_building => true,
+    :on_prestige => false,
     :win => true,
     :denier => 1,
     :cost => false,
@@ -59,7 +62,8 @@ describe CardAction do
     :get_new_citizen => false,
     :on_empty_neighborhood => false,
     :twice_activate => false,
-    :against_event_fill => 0
+    :against_event_fill => 0,
+    :get_event_denier => false,
   }}
 
   describe "#mongoize" do

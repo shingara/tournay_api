@@ -17,6 +17,7 @@ class CardAction
 
   attribute :on_people, Boolean, :default => false
   attribute :on_building, Boolean, :default => false
+  attribute :on_prestige, Boolean, :default => false
 
   attribute :win, Boolean, :default => false
 
@@ -31,6 +32,7 @@ class CardAction
   attribute :on_empty_neighborhood, Boolean, :default => false
   attribute :twice_activate, Boolean, :default => false
   attribute :against_event_fill, Integer, :default => 0
+  attribute :get_event_denier, Boolean, :default => false
 
   def mongoize
     {
@@ -41,6 +43,7 @@ class CardAction
       :in_place => in_place,
       :on_people => on_people,
       :on_building => on_building,
+      :on_prestige => on_prestige,
       :win => win,
       :denier => denier,
       :cost => cost,
@@ -52,6 +55,7 @@ class CardAction
       :on_empty_neighborhood => on_empty_neighborhood,
       :twice_activate => twice_activate,
       :against_event_fill => against_event_fill,
+      :get_event_denier => get_event_denier
     }
   end
 
