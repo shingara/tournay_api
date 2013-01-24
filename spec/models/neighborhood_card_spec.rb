@@ -2,8 +2,6 @@ require 'models/spec_helper'
 
 describe NeighborhoodCard do
 
-  it { should have_field(:action).of_type(CardAction) }
-
   it { should have_field(:color).of_type(Color) }
   it { should have_field(:victory_point).of_type(Integer) }
   it { should have_field(:level).of_type(Integer) }

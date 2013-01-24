@@ -9,7 +9,9 @@ class NeighborhoodCard
   field :cost, :type => Integer
   field :level, :type => Integer
 
-  field :action, :type => CardAction
+  embeds_one :action
+  embeds_one :when
+
 
   def people?
     card_type == 'people'
