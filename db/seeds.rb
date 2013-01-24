@@ -71,14 +71,8 @@ NeighborhoodCard.create!({
   :level => 1,
   :name => 'Ferme',
   :card_type => 'building',
-  :when => When::InActivate.new
-  # :action => CardAction.new(
-  #   :color_effect => nil,
-  #   :win => true,
-  #   :denier => 1,
-  #   :cost => false,
-  #   :on_empty_neighborhood => true
-  # )
+  :when => When::InActivate.new,
+  :action => Actions::GetDenierByEmptyNeighborhood.new(:num => 1)
 })
 
 NeighborhoodCard.create!({
@@ -99,6 +93,7 @@ NeighborhoodCard.create!({
   :level => 1,
   :name => 'Compagnon',
   :card_type => 'people',
+  :when => When::InActivateAround.new(:colors => [Color.new(:grey)], :building => true),
   # :action => CardAction.new(
   #   :color_effect => Color.new(:grey),
   #   :around => true,
