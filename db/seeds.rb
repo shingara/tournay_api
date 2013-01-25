@@ -94,14 +94,7 @@ NeighborhoodCard.create!({
   :name => 'Compagnon',
   :card_type => 'people',
   :when => When::InActivateAround.new(:colors => [Color.new(:grey)], :building => true),
-  # :action => CardAction.new(
-  #   :color_effect => Color.new(:grey),
-  #   :around => true,
-  #   :in_activate => true,
-  #   :on_building => true,
-  #   :win => true,
-  #   :denier => 1,
-  # )
+  :action => Actions::GetDenier.new(:num => 1),
 })
 
 NeighborhoodCard.create!({
@@ -111,11 +104,8 @@ NeighborhoodCard.create!({
   :level => 1,
   :name => 'Grange',
   :card_type => 'building',
-  :when => When::InActivate.new
-  # :action => CardAction.new(
-  #   :color_effect => Color.new(:yellow),
-  #   :get_one_card_on => 2
-  # )
+  :when => When::InActivate.new,
+  :action => Actions::GetCard.new(:num => 1, :level => 2, :color => Color.new(:yellow))
 })
 
 NeighborhoodCard.create!({
@@ -125,11 +115,8 @@ NeighborhoodCard.create!({
   :level => 1,
   :name => 'Port',
   :card_type => 'building',
-  :when => When::InActivate.new
-  # :action => CardAction.new(
-  #   :color_effect => Color.new(:yellow),
-  #   :copy_action_not_activate => true
-  # )
+  :when => When::InActivate.new,
+  :action => Actions::CopyCard.new(:color => Color.new(:yellow), :activate => false)
 })
 
 # White card level 1
@@ -141,11 +128,8 @@ NeighborhoodCard.create!({
   :level => 1,
   :name => 'Bibliotheque',
   :card_type => 'building',
-  :when => When::InActivate.new
-  # :action => CardAction.new(
-  #   :color_effect => Color.new(:grey),
-  #   :get_one_card_on => 2
-  # )
+  :when => When::InActivate.new,
+  :action => Actions::GetCard.new(:color => Color.new(:grey), :level => 2)
 })
 
 NeighborhoodCard.create!({
@@ -153,15 +137,10 @@ NeighborhoodCard.create!({
   :color => Color.new(:white),
   :victory_point => 1,
   :level => 1,
-  :name => 'Eveque',
+  :name => 'Evêque',
   :card_type => 'people',
-  # :action => CardAction.new(
-  #   :color_effect => Color.new(:white),
-  #   :get_back_citizen_in_place => true,
-  #   :around => true,
-  #   :in_activate => true,
-  #   :on_building => true,
-  # )
+  :when => When::InActivateAround.new(:colors => [Color.new(:white)]),
+  :action => Actions::CollectCitizen.new(:on_place => true, :on_neighborhood => false)
 })
 
 NeighborhoodCard.create!({
