@@ -181,7 +181,7 @@ NeighborhoodCard.create!({
   :color => Color.new(:white),
   :victory_point => 1,
   :level => 1,
-  :name => 'Pretre',
+  :name => 'Prêtre',
   :card_type => 'people',
   :when => When::InPlaceAround.new(:colors => [Color.new(:white)]),
   :action => Actions::TwiceActivate.new
@@ -258,7 +258,7 @@ NeighborhoodCard.create!({
   :name => 'Port',
   :card_type => 'building',
   :when => When::InActivate.new,
-  :action => Actions::AgainstEvent.new(:with_denier => 1)
+  :action => Actions::AgainstEvent.new(:with_denier => 1, :num => 1)
 })
 
 NeighborhoodCard.create!({
@@ -283,7 +283,7 @@ NeighborhoodCard.create!({
   :name => 'Chevalier',
   :card_type => 'people',
   :when => When::InPlaceAround.new(:prestige => true, :colors => [Color.new(:grey)]),
-  :action => Actions::AgainstEvent.new(:with_denier => true, :get_denier => true)
+  :action => Actions::AgainstEvent.new(:with_denier => true, :get_denier => true, :num => 1)
 })
 
 NeighborhoodCard.create!({
@@ -316,7 +316,7 @@ NeighborhoodCard.create!({
   :name => 'Fort',
   :card_type => 'building',
   :when => When::InActivate.new,
-  :action => Actions::AgainstEvent.new(:with_denier => 1)
+  :action => Actions::AgainstEvent.new(:with_denier => 1, :num => 1)
 })
 
 NeighborhoodCard.create!({
@@ -336,7 +336,7 @@ NeighborhoodCard.create!({
   :cost => 3,
   :color => Color.new(:yellow),
   :victory_point => 1,
-  :level => 1,
+  :level => 2,
   :name => 'Architecte',
   :card_type => 'people',
   :when => When::InPlaceAround.new(:building => true, :prestige => true, :colors => [Color.new(:grey)]),
@@ -347,7 +347,7 @@ NeighborhoodCard.create!({
   :cost => 3,
   :color => Color.new(:yellow),
   :victory_point => 2,
-  :level => 1,
+  :level => 2,
   :name => 'Echevin',
   :card_type => 'people',
   :when => When::InPlaceAround.new(:people => true, :colors => [Color.new(:grey)]),
@@ -358,7 +358,7 @@ NeighborhoodCard.create!({
   :cost => 3,
   :color => Color.new(:yellow),
   :victory_point => 1,
-  :level => 1,
+  :level => 2,
   :name => 'Marché',
   :card_type => 'building',
   :when => When::InActivate.new,
@@ -369,7 +369,7 @@ NeighborhoodCard.create!({
   :cost => 3,
   :color => Color.new(:yellow),
   :victory_point => 2,
-  :level => 1,
+  :level => 2,
   :name => 'Carriére',
   :card_type => 'building',
   :when => When::InActivate.new,
@@ -380,7 +380,7 @@ NeighborhoodCard.create!({
   :cost => 3,
   :color => Color.new(:yellow),
   :victory_point => 1,
-  :level => 1,
+  :level => 2,
   :name => 'Grange',
   :card_type => 'building',
   :when => When::InActivate.new,
@@ -391,7 +391,7 @@ NeighborhoodCard.create!({
   :cost => 3,
   :color => Color.new(:yellow),
   :victory_point => 0,
-  :level => 1,
+  :level => 2,
   :name => 'Péage',
   :card_type => 'building',
   :when => When::InActivate.new,
@@ -402,7 +402,7 @@ NeighborhoodCard.create!({
   :cost => 3,
   :color => Color.new(:yellow),
   :victory_point => 0,
-  :level => 1,
+  :level => 2,
   :name => 'Compagnon',
   :card_type => 'people',
   :when => When::InActivateAround.new(:building => true, :colors => [Color.new(:grey)]),
@@ -413,7 +413,7 @@ NeighborhoodCard.create!({
   :cost => 3,
   :color => Color.new(:yellow),
   :victory_point => 2,
-  :level => 1,
+  :level => 2,
   :name => 'Habitation',
   :card_type => 'building',
   :when => When::InActivate.new,
@@ -424,7 +424,7 @@ NeighborhoodCard.create!({
   :cost => 3,
   :color => Color.new(:yellow),
   :victory_point => 1,
-  :level => 1,
+  :level => 2,
   :name => 'Port',
   :card_type => 'building',
   :when => When::InActivate.new,
@@ -432,3 +432,126 @@ NeighborhoodCard.create!({
 })
 
 # White card level 2
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:white),
+  :victory_point => 2,
+  :level => 2,
+  :name => 'Augustin',
+  :card_type => 'people',
+  :when => When::InPlaceAround.new(:colors => [Color.new(:white)], :building => true, :people => true),
+  :action => Actions::GetDenier.new(:num => 2)
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:white),
+  :victory_point => 1,
+  :level => 2,
+  :name => 'Evêché',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::GetCard.new(:level => 3, :num => 1, :color => Color.new(:white))
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:white),
+  :victory_point => 0,
+  :level => 2,
+  :name => 'Pont',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::CopyCard.new(:color => Color.new(:grey), :building => true, :activate => true)
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:white),
+  :victory_point => 0,
+  :level => 2,
+  :name => 'Bibliothèque',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::GetCard.new(:level => 3, :color => Color.new(:grey), :num => 1)
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:white),
+  :victory_point => 2,
+  :level => 2,
+  :name => 'Monastère',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::GetCitizen.new(:cost=> 2, :color => Color.new(:white))
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:white),
+  :victory_point => 1,
+  :level => 2,
+  :name => 'Prêtre',
+  :card_type => 'people',
+  :when => When::InPlaceAround.new(:colors => [Color.new(:grey)]),
+  :action => Actions::TwiceActivate.new
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:white),
+  :victory_point => 0,
+  :level => 2,
+  :name => 'Bibliothèque',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::GetCard.new(:num => 2, :level => 2, :color => Color.new(:grey))
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:white),
+  :victory_point => 0,
+  :level => 2,
+  :name => 'Monastère',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::GetCitizen.new(:cost => 2, :color => Color.new(:grey))
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:white),
+  :victory_point => 0,
+  :level => 2,
+  :name => 'Prieur',
+  :card_type => 'building',
+  :when => When::InActivateAround.new(:colors => [Color.new(:white)], :building => true),
+  :action => Actions::GetDenier.new(:num => 3)
+})
+
+# Red card level 2
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:red),
+  :victory_point => 1,
+  :level => 2,
+  :name => 'Arsenal',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::GetCard.new(:num => 1, :color => Color.new(:red), :level => 3)
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:red),
+  :victory_point => 1,
+  :level => 2,
+  :name => 'Bastion',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::AgainstEvent.new(:num => 1)
+})

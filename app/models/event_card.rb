@@ -2,7 +2,6 @@ class EventCard
 
   include Mongoid::Document
 
-  field :card_action, :type => CardAction
   field :name, :type => String
   field :denier_active, :type => Integer
   field :denier_total, :type => Integer
@@ -10,6 +9,5 @@ class EventCard
 
   embedded_in :game
   embedded_in :player_in_game
-
 
 end

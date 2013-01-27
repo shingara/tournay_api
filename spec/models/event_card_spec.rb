@@ -5,7 +5,6 @@ describe EventCard do
   it { should be_embedded_in(:game) }
   it { should be_embedded_in(:player_in_game) }
 
-  it { should have_field(:card_action).of_type(CardAction) }
   it { should have_field(:name).of_type(String) }
 
   it { should have_field(:denier_active).of_type(Integer) }
