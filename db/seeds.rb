@@ -632,3 +632,32 @@ NeighborhoodCard.create!({
   :when => When::InActivateAround.new(:color => Color.new(:yellow), :building => true),
   :action => Actions::GetDenier.new(:num => 2)
 })
+
+# Yellow card level 3
+
+NeighborhoodCard.create!({
+  :cost => 5,
+  :color => Color.new(:yellow),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 4,
+    :other => 2,
+    :condition => 'triple_neighborhood_color'
+  ),
+  :level => 3,
+  :name => 'Beffroi',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => 2,
+  :color => Color.new(:yellow),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 2,
+    :other => 1,
+    :condition => 'yellow_citizen'
+  ),
+  :level => 3,
+  :name => 'Hotel de ville',
+  :card_type => 'prestige',
+})
+

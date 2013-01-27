@@ -11,6 +11,7 @@ class NeighborhoodCard
 
   embeds_one :action
   embeds_one :when
+  embeds_one :condition_victory_point, :class_name => 'VictoryPoint'
 
 
   def people?

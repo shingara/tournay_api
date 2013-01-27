@@ -9,6 +9,10 @@ describe NeighborhoodCard do
   it { should have_field(:name).of_type(String) }
   it { should have_field(:card_type).of_type(String) }
 
+  it { should embed_one(:action) }
+  it { should embed_one(:when) }
+  it { should embed_one(:condition_victory_point) }
+
   describe "#people?" do
     it 'return true' do
       NeighborhoodCard.new(:card_type => 'people').people?.should be_true
