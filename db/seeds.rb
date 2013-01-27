@@ -555,3 +555,80 @@ NeighborhoodCard.create!({
   :when => When::InActivate.new,
   :action => Actions::AgainstEvent.new(:num => 1)
 })
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:red),
+  :victory_point => 1,
+  :level => 2,
+  :name => 'Port',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::AgainstEvent.new(:num => 1, :get_denier => true, :with_denier => true)
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:red),
+  :victory_point => 2,
+  :level => 2,
+  :name => 'Avoué',
+  :card_type => 'people',
+  :when => When::InPlaceAround.new(:colors => [Color.new(:white), Color.new(:yellow)], :building => true),
+  :action => Actions::GetDenier.new(:num => 3)
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:red),
+  :victory_point => 2,
+  :level => 2,
+  :name => 'Caserne',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::GetCitizen.new(:cost => 2, :color => Color.new(:red))
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:red),
+  :victory_point => 1,
+  :level => 2,
+  :name => 'Route',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::CopyCard.new(:color => Color.new(:red), :activate => true, :building => true)
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:red),
+  :victory_point => 2,
+  :level => 2,
+  :name => 'Baliste',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::PutDenierOnEvent.new(:num => 3)
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:red),
+  :victory_point => 1,
+  :level => 2,
+  :name => 'Fort',
+  :card_type => 'building',
+  :when => When::InActivate.new,
+  :action => Actions::AgainstEvent.new(:num => 1, :with_denier => true, :get_denier => true)
+})
+
+NeighborhoodCard.create!({
+  :cost => 3,
+  :color => Color.new(:red),
+  :victory_point => 2,
+  :level => 2,
+  :name => 'Percepteur',
+  :card_type => 'people',
+  :when => When::InActivateAround.new(:color => Color.new(:yellow), :building => true),
+  :action => Actions::GetDenier.new(:num => 2)
+})

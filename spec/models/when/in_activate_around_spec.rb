@@ -11,5 +11,13 @@ describe When::InPlaceAround do
   # TODO: extract colors in Mongoid::Document
   it { should have_field(:colors).of_type(Array) }
 
+  describe "#color=" do
+    let(:color) { Color.new(:yellow) }
+    it 'fill colors' do
+      wa = When::InActivateAround.new(:color => color)
+      expect(wa.colors).to eq [color]
+    end
+  end
+
 end
 
