@@ -15,7 +15,7 @@ class Game
   embeds_many :yellow_cards_two, :class_name => 'NeighborhoodCard'
   embeds_many :yellow_cards_third, :class_name => 'NeighborhoodCard'
 
-  embeds_many :event_cards
+  embeds_many :event_cards_in_game, :class_name => 'EventCardInGame'
   embeds_many :citizens
 
 end

@@ -6,6 +6,6 @@ class PlayerInGame
   embedded_in :game
   embeds_many :citizens
   embeds_many :hand_cards, :class_name => "NeighborhoodCardInGame"
-  embeds_many :event_card
+  embeds_many :event_cards_in_game
 
 end

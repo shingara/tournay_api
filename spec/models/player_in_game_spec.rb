@@ -7,4 +7,5 @@ describe PlayerInGame do
   it { should embed_many(:citizens).of_type(Citizen) }
 
   it { should embed_many(:hand_cards).of_type(NeighborhoodCardInGame) }
+  it { should embed_many(:event_cards_in_game) }
 end
