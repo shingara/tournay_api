@@ -846,3 +846,17 @@ NeighborhoodCard.create!({
   :card_type => 'prestige',
 })
 
+
+# Event card
+EventCard.create!({
+  :cost => Cost.new(
+    :denier => 1,
+    :citizen => 1,
+    :color => Color.new(:red)
+  ),
+  :denier_total => 2,
+  :name => 'Bataille de Bouvines',
+  :event => Events::UnActivateCitizen.new(
+    :color => Color.new(:red)
+  )
+})
