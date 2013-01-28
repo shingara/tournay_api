@@ -700,3 +700,149 @@ NeighborhoodCard.create!({
   :card_type => 'prestige',
 })
 
+# Level Card white 3
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:denier => 20),
+  :color => Color.new(:white),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 8,
+    :condition => 'own',
+  ),
+  :level => 3,
+  :name => 'Cathdrale',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:citizen => 1, :color => Color.new(:white)),
+  :color => Color.new(:white),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 2,
+    :other => 1,
+    :condition => 'white_building_people',
+  ),
+  :level => 3,
+  :name => 'Saint-Jacques',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:denier => 2, :card => 1),
+  :color => Color.new(:white),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 2,
+    :other => 1,
+    :condition => 'grey_prestige',
+  ),
+  :level => 3,
+  :name => 'La madeleine',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:denier => 5),
+  :color => Color.new(:white),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 3,
+    :other => 1,
+    :condition => 'triple_citizen_color',
+  ),
+  :level => 3,
+  :name => 'Saint-Nicolas',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:denier => 5),
+  :color => Color.new(:white),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 4,
+    :other => 2,
+    :condition => 'triple_neighborhood_color',
+  ),
+  :level => 3,
+  :name => 'Saint-Brice',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:denier => 2, :card => 1),
+  :color => Color.new(:white),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 2,
+    :other => 1,
+    :condition => 'white_citizen',
+  ),
+  :level => 3,
+  :name => 'Saint-Brice',
+  :card_type => 'prestige',
+})
+
+# Level Card red 3
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:denier => 5),
+  :color => Color.new(:red),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 3,
+    :other => 1,
+    :condition => 'triple_citizen_color',
+  ),
+  :level => 3,
+  :name => 'Pont des trous',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:denier => 5),
+  :color => Color.new(:red),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 2,
+    :other => 1,
+    :condition => 'bulwark_card',
+  ),
+  :level => 3,
+  :name => 'Tour Henri VIII',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:denier => 2, :card => 1),
+  :color => Color.new(:red),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 2,
+    :other => 1,
+    :condition => 'red_citizen',
+  ),
+  :level => 3,
+  :name => 'Porte de la Bigne',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:citizen => 1, :color => Color.new(:red)),
+  :color => Color.new(:red),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 2,
+    :other => 1,
+    :condition => 'red_building_people',
+  ),
+  :level => 3,
+  :name => 'Tour Saint Georges',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:denier => 5),
+  :color => Color.new(:red),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 2,
+    :other => 1,
+    :condition => 'white_or_red_building',
+  ),
+  :level => 3,
+  :name => 'Tour d\'Arras',
+  :card_type => 'prestige',
+})
+
