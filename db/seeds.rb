@@ -11,7 +11,7 @@
 # Yellow card level 1
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:yellow),
   :victory_point => 1,
   :level => 1,
@@ -26,7 +26,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:yellow),
   :victory_point => 1,
   :level => 1,
@@ -40,7 +40,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:yellow),
   :victory_point => 1,
   :level => 1,
@@ -54,7 +54,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:yellow),
   :victory_point => 1,
   :level => 1,
@@ -65,7 +65,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:yellow),
   :victory_point => 0,
   :level => 1,
@@ -76,7 +76,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:yellow),
   :victory_point => 0,
   :level => 1,
@@ -87,7 +87,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:yellow),
   :victory_point => 1,
   :level => 1,
@@ -98,7 +98,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:yellow),
   :victory_point => 1,
   :level => 1,
@@ -109,7 +109,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:yellow),
   :victory_point => 1,
   :level => 1,
@@ -122,7 +122,7 @@ NeighborhoodCard.create!({
 # White card level 1
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:white),
   :victory_point => 1,
   :level => 1,
@@ -133,7 +133,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:white),
   :victory_point => 1,
   :level => 1,
@@ -144,7 +144,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 1,
@@ -155,7 +155,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 1,
@@ -166,7 +166,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:white),
   :victory_point => 1,
   :level => 1,
@@ -177,7 +177,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:white),
   :victory_point => 1,
   :level => 1,
@@ -188,7 +188,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 1,
@@ -199,7 +199,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 1,
@@ -213,7 +213,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 1,
@@ -226,7 +226,7 @@ NeighborhoodCard.create!({
 # Red card level 1
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 1,
@@ -237,7 +237,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 1,
@@ -251,7 +251,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 1,
@@ -262,7 +262,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 1,
@@ -276,7 +276,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 1,
@@ -287,7 +287,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 1,
@@ -298,7 +298,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 1,
@@ -309,7 +309,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 1,
@@ -320,7 +320,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 1,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 1,
@@ -333,7 +333,7 @@ NeighborhoodCard.create!({
 # Yellow card level 2
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:yellow),
   :victory_point => 1,
   :level => 2,
@@ -344,7 +344,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:yellow),
   :victory_point => 2,
   :level => 2,
@@ -355,7 +355,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:yellow),
   :victory_point => 1,
   :level => 2,
@@ -366,7 +366,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:yellow),
   :victory_point => 2,
   :level => 2,
@@ -377,7 +377,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 1),
   :color => Color.new(:yellow),
   :victory_point => 1,
   :level => 2,
@@ -388,7 +388,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:yellow),
   :victory_point => 0,
   :level => 2,
@@ -399,7 +399,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:yellow),
   :victory_point => 0,
   :level => 2,
@@ -410,7 +410,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:yellow),
   :victory_point => 2,
   :level => 2,
@@ -421,7 +421,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:yellow),
   :victory_point => 1,
   :level => 2,
@@ -434,7 +434,7 @@ NeighborhoodCard.create!({
 # White card level 2
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:white),
   :victory_point => 2,
   :level => 2,
@@ -445,7 +445,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:white),
   :victory_point => 1,
   :level => 2,
@@ -456,7 +456,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 2,
@@ -467,7 +467,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 2,
@@ -478,7 +478,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:white),
   :victory_point => 2,
   :level => 2,
@@ -489,7 +489,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:white),
   :victory_point => 1,
   :level => 2,
@@ -500,7 +500,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 2,
@@ -511,7 +511,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 2,
@@ -522,7 +522,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:white),
   :victory_point => 0,
   :level => 2,
@@ -535,7 +535,7 @@ NeighborhoodCard.create!({
 # Red card level 2
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 2,
@@ -546,7 +546,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 2,
@@ -557,7 +557,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 2,
@@ -568,7 +568,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:red),
   :victory_point => 2,
   :level => 2,
@@ -579,7 +579,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:red),
   :victory_point => 2,
   :level => 2,
@@ -590,7 +590,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 2,
@@ -601,7 +601,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:red),
   :victory_point => 2,
   :level => 2,
@@ -612,7 +612,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:red),
   :victory_point => 1,
   :level => 2,
@@ -623,7 +623,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 3,
+  :cost => Cost.new(:denier => 3),
   :color => Color.new(:red),
   :victory_point => 2,
   :level => 2,
@@ -636,7 +636,7 @@ NeighborhoodCard.create!({
 # Yellow card level 3
 
 NeighborhoodCard.create!({
-  :cost => 5,
+  :cost => Cost.new(:denier => 5),
   :color => Color.new(:yellow),
   :condition_victory_point => VictoryPoint.new(
     :own => 4,
@@ -649,7 +649,7 @@ NeighborhoodCard.create!({
 })
 
 NeighborhoodCard.create!({
-  :cost => 2,
+  :cost => Cost.new(:denier => 2, :card => 1),
   :color => Color.new(:yellow),
   :condition_victory_point => VictoryPoint.new(
     :own => 2,
