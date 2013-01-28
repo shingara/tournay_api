@@ -10,7 +10,10 @@ class VictoryPoint
     inclusion: {
     in: [
       'triple_neighborhood_color',
-      'yellow_citizen'
+      'yellow_citizen',
+      'yellow_building_people',
+      'grey_people',
+      'by_4_denier'
     ]
   }
 

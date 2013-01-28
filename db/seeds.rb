@@ -661,3 +661,42 @@ NeighborhoodCard.create!({
   :card_type => 'prestige',
 })
 
+NeighborhoodCard.create!({
+  :cost => Cost.new(:citizen => 1, :color => Color.new(:yellow)),
+  :color => Color.new(:yellow),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 2,
+    :other => 1,
+    :condition => 'yellow_building_people'
+  ),
+  :level => 3,
+  :name => 'Salle aux draps',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:denier => 5),
+  :color => Color.new(:yellow),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 2,
+    :other => 1,
+    :condition => 'grey_people',
+  ),
+  :level => 3,
+  :name => 'Tours des six',
+  :card_type => 'prestige',
+})
+
+NeighborhoodCard.create!({
+  :cost => Cost.new(:denier => 5),
+  :color => Color.new(:yellow),
+  :condition_victory_point => VictoryPoint.new(
+    :own => 2,
+    :other => 1,
+    :condition => 'by_4_denier',
+  ),
+  :level => 3,
+  :name => 'Hotels des monnaies',
+  :card_type => 'prestige',
+})
+
