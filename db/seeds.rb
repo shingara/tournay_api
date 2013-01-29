@@ -848,6 +848,7 @@ NeighborhoodCard.create!({
 
 
 # Event card
+
 EventCard.create!({
   :cost => Cost.new(
     :denier => 1,
@@ -858,5 +859,200 @@ EventCard.create!({
   :name => 'Bataille de Bouvines',
   :event => Events::UnActivateCitizen.new(
     :color => Color.new(:red)
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 2,
+    :color => Color.new(:red)
+  ),
+  :denier_total => 4,
+  :name => 'Bataille de Cassel',
+  :event => Events::LostDenier.new(
+    :num => 1,
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 1,
+    :color => Color.new(:yellow),
+    :denier => 1
+  ),
+  :denier_total => 3,
+  :name => 'Bataille de Courtrai',
+  :event => Events::LostNeighborhood.new(
+    :num => 1,
+    :color => Color.new(:yellow),
+    :building => true,
+    :people => true
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 2,
+    :color => Color.new(:yellow),
+  ),
+  :denier_total => 3,
+  :name => 'Brigandage',
+  :event => Events::LostDenier.new(
+    :num => 1,
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 1,
+    :color => Color.new(:yellow),
+    :denier => 1
+  ),
+  :denier_total => 2,
+  :name => 'Grande Peste',
+  :event => Events::LostCitizen.new(
+    :num => 1,
+    :color => Color.new(:yellow)
+  )
+})
+
+
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 1,
+    :color => Color.new(:white),
+    :denier => 1
+  ),
+  :denier_total => 3,
+  :name => 'Hérésie',
+  :event => Events::LostNeighborhood.new(
+    :num => 1,
+    :color => Color.new(:white),
+    :building => true,
+    :people => true
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 1,
+    :color => Color.new(:red),
+    :denier => 1
+  ),
+  :denier_total => 2,
+  :name => 'Croisade',
+  :event => Events::LostCitizen.new(
+    :num => 1,
+    :color => Color.new(:grey),
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 1,
+    :color => Color.new(:white),
+    :denier => 1
+  ),
+  :denier_total => 2,
+  :name => 'Excommunication',
+  :event => Events::LostCitizen.new(
+    :num => 1,
+    :color => Color.new(:white),
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 2,
+    :color => Color.new(:white),
+  ),
+  :denier_total => 1,
+  :name => 'Maraudage',
+  :event => Events::LostDenier.new(
+    :num => 1,
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 1,
+    :color => Color.new(:white),
+    :denier => 1
+  ),
+  :denier_total => 2,
+  :name => 'Attaque des normands',
+  :event => Events::LostNeighborhood.new(
+    :num => 1,
+    :color => Color.new(:grey),
+    :building => true,
+    :people => true
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 1,
+    :color => Color.new(:red),
+    :denier => 1
+  ),
+  :denier_total => 3,
+  :name => 'Visite du roi',
+  :event => Events::WinDenier.new(
+    :num => 2,
+    :color => Color.new(:red),
+    :building => true,
+    :people => true,
+    :citizen => true
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 1,
+    :color => Color.new(:yellow),
+    :denier => 1
+  ),
+  :denier_total => 4,
+  :name => 'Grande Ducasse',
+  :event => Events::WinDenier.new(
+    :num => 2,
+    :color => Color.new(:yellow),
+    :building => true,
+    :people => true,
+    :citizen => true
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 1,
+    :color => Color.new(:white),
+    :denier => 1
+  ),
+  :denier_total => 2,
+  :name => 'Procession',
+  :event => Events::WinDenier.new(
+    :num => 2,
+    :color => Color.new(:white),
+    :building => true,
+    :people => true,
+    :citizen => true
+  )
+})
+
+EventCard.create!({
+  :cost => Cost.new(
+    :citizen => 1,
+    :color => Color.new(:red),
+    :denier => 1
+  ),
+  :denier_total => 3,
+  :name => 'Guillaume le conquérant',
+  :event => Events::LostNeighborhood.new(
+    :num => 1,
+    :color => Color.new(:red),
+    :building => true,
+    :people => true,
   )
 })
