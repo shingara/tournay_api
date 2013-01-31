@@ -1,3 +1,6 @@
+require 'mongoid'
+require 'color'
+
 class NeighborhoodCard
   include Mongoid::Document
 
