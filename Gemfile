@@ -9,6 +9,7 @@ gem 'rake', :require => false
 gem 'mongoid', :require => false
 gem 'virtus', :require => false
 gem 'equalizer', :require => false
+gem 'rabl', :require => false
 
 group :test, :development do
   gem 'rspec-rails', :require => false
