@@ -5,8 +5,7 @@ guard 'rspec',
   :notification => false,
   :all_after_pass => true,     # run all specs after changed specs pass, default: true
   :all_on_start => true,       # run all the specs at startup, default: true
-  :keep_failed => true,
-  do
+  :keep_failed => true do
 
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
@@ -24,4 +23,3 @@ guard 'rspec',
   # Capybara features specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/features/#{m[1]}_spec.rb" }
 end
-

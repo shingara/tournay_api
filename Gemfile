@@ -22,6 +22,8 @@ group :development do
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
   gem 'guard-rspec', :require => false
+
+  gem 'foreman', :require => false
 end
 
 group :test do
