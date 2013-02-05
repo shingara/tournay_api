@@ -9,4 +9,14 @@ describe "API Routing" do
       :action => 'start'
     )
   end
+
+  it 'route to show game' do
+    expect({
+      :get => '/games/123'
+    }).to route_to(
+      :controller => 'games',
+      :action => 'show',
+      :id => '123'
+    )
+  end
 end

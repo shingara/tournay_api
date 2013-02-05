@@ -17,6 +17,7 @@ if defined?(Bundler)
 end
 
 require 'rails-api'
+require 'draper'
 
 module TournayApi
   class Application < Rails::Application

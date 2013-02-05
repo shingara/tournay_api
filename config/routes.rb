@@ -57,4 +57,5 @@ TournayApi::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   post '/games/start' => 'games#start'
+  get '/games/:id' => 'games#show', :as => 'game'
 end

@@ -10,6 +10,7 @@ gem 'mongoid', :require => false
 gem 'virtus', :require => false
 gem 'equalizer', :require => false
 gem 'rabl', :require => false
+gem 'draper', :require => false
 
 group :test, :development do
   gem 'rspec-rails', :require => false
