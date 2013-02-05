@@ -3,3 +3,6 @@
 
 en:
   hello: "Hello world"
+  game_status:
+    state:
+      waiting_player: "waiting %{num} players"
