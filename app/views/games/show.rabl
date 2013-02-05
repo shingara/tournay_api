@@ -1,2 +1,2 @@
 object @game
-attributes :links
+attributes :links, :status

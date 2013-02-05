@@ -11,7 +11,10 @@ class GameStart
   end
 
   def game
-    Game.new(:num_player => @num_player)
+    Game.new(
+      :num_player => @num_player,
+      :status => GameStatus.new(:state => :waiting_player)
+    )
   end
   memoize :game, :freezer => :noop
 

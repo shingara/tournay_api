@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe "Play" do
-  it "can play", :pending => false do
+  it "can play", :pending => true do
     post "/games/start", :num_player => 2
     game_links = JSON.parse(response.body)['links']
 

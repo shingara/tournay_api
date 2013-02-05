@@ -9,4 +9,8 @@ class GameApiDecorator < Draper::Decorator
     }
   end
 
+  def status
+    model.status.translate
+  end
+
 end
