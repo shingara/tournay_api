@@ -1,6 +1,8 @@
 class PlayerInGame
   include Mongoid::Document
 
+  field :name, :type => String
+  field :external_id
   field :point, :type => Integer
 
   embedded_in :game

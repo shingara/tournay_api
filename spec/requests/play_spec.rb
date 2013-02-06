@@ -12,7 +12,12 @@ describe "Play" do
     post game_links['add_player']['href'], 'name' => 'Cyril', :id => '3'
     expect(response.status).to eq 201
 
-    get game_links['self']['href']
+    game = JSON.parse(response.body)
+    expect(game['players']).to eq [
+      {'name' => 'Cyril', 'id' => '3'}
+    ]
+
+    get game['links']['self']['href']
     expect(JSON.parse(response.body)['status']).to eq 'waiting 1 player'
 
     post game_links['add_player'], :player => {'name' => 'Léna', :id => '4'}
