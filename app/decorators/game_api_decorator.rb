@@ -5,7 +5,14 @@ class GameApiDecorator < Draper::Decorator
 
   def links
     {
-      'self' => h.game_url(model.id),
+      'self' => {
+        'href' => h.game_url(model.id)
+      },
+      'add_player' => {
+        'href' => h.add_player_game_url(model.id),
+        'method' => 'post',
+        'params' => ['name', 'id']
+      }
     }
   end
 

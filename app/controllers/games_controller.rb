@@ -10,12 +10,19 @@ class GamesController < ApplicationController
   end
 
   def show
-    game = Game.find(params[:id])
     if game
       @game = GameApiDecorator.new(game)
       render :show, :formats => :json
     else
       render :status => 404, :text => 'not found'
     end
+  end
+
+  def add_player
+    render 'show', :status => 201, :formats => :json
+  end
+
+  def game
+    @_game ||= Game.find(params[:id])
   end
 end
