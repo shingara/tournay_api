@@ -15,7 +15,7 @@ class GameStatus
   validates_inclusion_of :state, :in => GameStatus.allow_state
 
   def translate
-    I18n.t(state, :scope => 'game_status.state', :num => num)
+    I18n.t(state, :scope => 'game_status.state', :count => num)
   end
 
 end

@@ -19,10 +19,22 @@ class GamesController < ApplicationController
   end
 
   def add_player
+    add_player = Game::AddPlayer.new(game, add_player_params)
+    add_player.execute
+    @game = GameApiDecorator.new(add_player.game)
     render 'show', :status => 201, :formats => :json
   end
 
+  private
+
   def game
     @_game ||= Game.find(params[:id])
+  end
+
+  def add_player_params
+    {
+      :external_id => params[:external_id],
+      :name => params[:name]
+    }
   end
 end
