@@ -6,6 +6,7 @@ class Game::AddPlayer
   attr_reader :game
 
   def execute
+    return false if game.player_in_game.count >= game.num_player
     game.player_in_game.build(params)
     game.histories.build(
       :action => 'add_player',

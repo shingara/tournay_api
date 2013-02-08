@@ -1,3 +1,4 @@
+require 'fabricators/game_fabricator'
 require 'spec_helper'
 
 describe Game::AddPlayer do
@@ -57,6 +58,18 @@ describe Game::AddPlayer do
         }.to change {
           game.status.num
         }.from(2).to(1)
+      end
+    end
+
+    context "with already all player create" do
+      before do
+        game.player_in_game.build({:name => 'foo', :external_id => '1'})
+        game.player_in_game.build({:name => 'bar', :external_id => '2'})
+        game.save!
+      end
+      it 'not add new player' do
+        expect(add_player.execute).to eq false
+        expect(game.player_in_game.count).to eq 2
       end
     end
   end
