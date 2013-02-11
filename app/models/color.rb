@@ -50,6 +50,19 @@ class Color
     end
   end
 
+  def translate
+    case @color
+    when 1
+      'yellow'
+    when 2
+      'red'
+    when 3
+      'white'
+    when 4
+      'grey'
+    end
+  end
+
   class << self
 
     def mongoize(object)

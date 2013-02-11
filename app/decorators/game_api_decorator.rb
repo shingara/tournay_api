@@ -2,7 +2,7 @@ require 'draper'
 
 class GameApiDecorator < Draper::Decorator
   decorates :game
-  delegate :player_in_game
+  decorates_association :player_in_game
 
   def links
     {

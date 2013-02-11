@@ -1,7 +1,7 @@
 class Citizen
   include Mongoid::Document
 
-  field :color, :type => String
+  field :color, :type => Color
   field :engaged, :type => Boolean
 
   embedded_in :player_in_game

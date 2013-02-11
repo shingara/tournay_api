@@ -21,6 +21,26 @@ describe Game::AddPlayer do
       }.by(1)
     end
 
+    context "player" do
+      before { add_player.execute }
+      subject{ add_player.player }
+      it { should be_a(PlayerInGame) }
+      it { should be_persisted }
+      its(:denier) { should eq 6 }
+      its(:citizens) { should have(6).items }
+      it 'have 2 red citizens' do
+        expect(subject.citizens.select{|ci| ci.color == Color.new(:red)}).to have(2).items
+      end
+
+      it 'have 2 yellow citizens' do
+        expect(subject.citizens.select{|ci| ci.color == Color.new(:yellow)}).to have(2).items
+      end
+
+      it 'have 2 white citizens' do
+        expect(subject.citizens.select{|ci| ci.color == Color.new(:white)}).to have(2).items
+      end
+    end
+
     it 'return true if save' do
       expect(add_player.execute).to eq true
     end
@@ -48,7 +68,9 @@ describe Game::AddPlayer do
         add_player.execute
       end
       it { expect(game.histories.last.action).to eq 'add_player' }
-      it { expect(game.histories.last.params).to eq({:name => 'Cyril', :external_id => '3'}) }
+      it { expect(game.histories.last.params).to eq(
+        {:name => 'Cyril', :external_id => '3'}
+      ) }
     end
 
     context "with player missing" do
