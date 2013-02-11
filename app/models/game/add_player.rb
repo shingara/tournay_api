@@ -14,16 +14,20 @@ class Game::AddPlayer
       :action => 'add_player',
       :params => initial_params
     )
+    change_status
+    game.save
+  end
+
+  private
+
+  def change_status
     if game.num_player > game.player_in_game.size
       game.status.num = game.status.num - 1
     else
       game.status.waiting_player!
       game.status.num = rand(game.num_player) + 1
     end
-    game.save
   end
-
-  private
 
   def initial_params
     {
