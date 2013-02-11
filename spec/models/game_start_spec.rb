@@ -34,7 +34,7 @@ describe GameStart do
       game_start.create
       expect(
         game_start.game.status.state
-      ).to eq "waiting_player"
+      ).to eq "waiting_new_player"
       expect(
        game_start.game.status.num
       ).to eq 2

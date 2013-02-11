@@ -59,6 +59,11 @@ describe Game::AddPlayer do
           game.status.num
         }.from(2).to(1)
       end
+
+      it 'not change the game status' do
+        add_player.execute
+        expect(game.status.waiting_new_player?).to be true
+      end
     end
 
     context "with already all player create" do
@@ -71,6 +76,19 @@ describe Game::AddPlayer do
         expect(add_player.execute).to eq false
         expect(game.player_in_game.count).to eq 2
       end
+    end
+
+    context "on last player add" do
+      before do
+        game.player_in_game.build({:name => 'foo', :external_id => '1'})
+        game.save!
+      end
+
+      it 'change status to waiting player' do
+        add_player.execute
+        expect(game.status.waiting_player?).to eq true
+      end
+
     end
   end
 end

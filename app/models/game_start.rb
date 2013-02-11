@@ -14,7 +14,7 @@ class GameStart
     Game.new(
       :num_player => @num_player,
       :status => GameStatus.new(
-        :state => :waiting_player,
+        :state => :waiting_new_player,
         :num => @num_player
       )
     )

@@ -5,6 +5,7 @@ en:
   hello: "Hello world"
   game_status:
     state:
-      waiting_player:
+      waiting_new_player:
         one: "waiting 1 player"
         other: "waiting %{count} players"
+      waiting_player: "waiting player %{count} to play"
