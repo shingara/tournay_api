@@ -24,7 +24,7 @@ group :development do
   gem 'rb-fchange', :require => false
   gem 'guard-rspec', :require => false
 
-  gem 'foreman', :require => false
+  gem 'foreman', :require => false, :platforms => :ruby
 end
 
 group :test do
