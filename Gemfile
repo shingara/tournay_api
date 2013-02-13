@@ -25,6 +25,9 @@ group :development do
   gem 'guard-rspec', :require => false
 
   gem 'foreman', :require => false, :platforms => :ruby
+
+  gem 'vagrant', :require => false
+  gem 'berkshelf', :require => false
 end
 
 group :test do

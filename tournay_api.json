@@ -1,0 +1,6 @@
+{
+  "run_list": [
+    "mongodb::10gen_repo",
+    "mongodb::default"
+  ]
+}
