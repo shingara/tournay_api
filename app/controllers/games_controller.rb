@@ -25,6 +25,16 @@ class GamesController < ApplicationController
     render 'show', :status => 201, :formats => :json
   end
 
+  def play
+    play = Game::Play.new(game, params)
+    if play.play
+      @game = GameApiDecorator.new(play.game)
+      render :show, :status => 201, :formats => :json
+    else
+      render :status => 400, :json => play.errors
+    end
+  end
+
   private
 
   def game

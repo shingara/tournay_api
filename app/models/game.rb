@@ -15,4 +15,12 @@ class Game
   validates_numericality_of :num_player, :greater_than => 1
   validates_presence_of :status
 
+  def current_player_waiting
+    if status.waiting_player?
+      player_in_game[status.num - 1]
+    else
+      nil
+    end
+  end
+
 end

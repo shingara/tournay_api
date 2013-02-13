@@ -103,5 +103,14 @@ describe "Play" do
       }
     ]
 
+    # start player 1
+    post game_links['play']['href'], {
+      :player_id => '3',
+      :action => 'get_card',
+      :color => 'white',
+      :level => 2
+    }
+
+
   end
 end

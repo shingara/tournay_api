@@ -13,6 +13,10 @@ describe GameApiDecorator do
     it 'have add_player link' do
       expect(game_decorator.links['add_player']).to eq({'href' => "http://test.host/games/#{game.id}/add_player", 'method' => 'post', 'params' => ['name', 'id']})
     end
+
+    it 'have play link' do
+      expect(game_decorator.links['play']).to eq({'href' => "http://test.host/games/#{game.id}/play", 'method' => 'post', 'params' => ['player_id', 'action', 'color', 'level']})
+    end
   end
 
 end

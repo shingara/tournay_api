@@ -36,4 +36,34 @@ describe GamesController do
     end
   end
 
+  describe "POST /games/:id/play" do
+    context "with valid action" do
+      before do
+        Game::Play.stub(:new).and_return(mock(:play => true, :game => game))
+        post :play,
+          :player_id => 3,
+          :id => game.id,
+          :action => 'get_card',
+          :color => 'white',
+          :level => 2
+      end
+      it { expect(response).to render_template('show') }
+      it { expect(response.status).to eq 201 }
+    end
+
+    context "with error in play" do
+      before do
+        Game::Play.stub(:new).and_return(mock(:play => false, :game => game, :errors => ['bad action']))
+        post :play,
+          :player_id => 3,
+          :id => game.id,
+          :action => 'get_card',
+          :color => 'white',
+          :level => 2
+      end
+      it { expect(response.body).to eq ['bad action'].to_json }
+      it { expect(response.status).to eq 400 }
+    end
+  end
+
 end
