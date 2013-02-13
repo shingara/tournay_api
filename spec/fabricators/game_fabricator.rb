@@ -6,7 +6,7 @@ class GameFabricator
     @games << Game.new(
       :num_player => 2,
       :status => GameStatus.new(
-        :state => :waiting_new_player,
+        :state => 'waiting_new_player',
         :num => 2,
       )
     )
