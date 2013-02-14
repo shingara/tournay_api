@@ -1,4 +1,4 @@
-class Game::Actions::GetCard
+class Play::GetCard
 
   def initialize(game, params)
     @game = game
@@ -6,7 +6,6 @@ class Game::Actions::GetCard
   end
 
   def valid?
-    p @params.keys
     @params.keys.include?([:color, :level])
   end
 

@@ -8,8 +8,6 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 
-require 'actions/get_card'
-
 # Yellow card level 1
 
 NeighborhoodCard.create!({

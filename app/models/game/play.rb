@@ -1,3 +1,5 @@
+require 'play/get_card'
+
 class Game::Play
 
   def initialize(game, params)
@@ -7,6 +9,10 @@ class Game::Play
   attr_reader :game, :errors
 
   def play
+    unless game.current_player_waiting
+      @errors = ['no_player']
+      return false
+    end
     unless game.current_player_waiting.external_id == player_id
       @errors = ['bad_player_to_play']
       return false
@@ -29,6 +35,6 @@ class Game::Play
   end
 
   def get_card
-    Game::Actions::GetCard.new(game, @params)
+    Play::GetCard.new(game, @params)
   end
 end
