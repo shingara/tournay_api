@@ -107,4 +107,8 @@ Vagrant::Config.run do |config|
     conf.delete('run_list')
     chef.json = conf
   end
+
+  config.vm.network :hostonly, '192.168.10.201'
+  nfs_setting = RUBY_PLATFORM =~ /darwin/ ? true : false
+  config.vm.share_folder("v-root", "/vagrant", ".", :nfs => nfs_setting)
 end
