@@ -1,5 +1,6 @@
 {
   "run_list": [
+    "apt",
     "mongodb::10gen_repo",
     "mongodb::default"
   ]
