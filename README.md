@@ -12,4 +12,22 @@ chef-solo. You can prepare the installation by
 ```
 bundle install --gemfile=Gemfile.vagrant
 vagrant up
+vagrant ssh
+cd /vagrant
+./script/setup.rb
 ```
+
+Your environement is now up. You can launch all test by :
+
+```
+./bin/rspec
+```
+
+You can also launch a guard :
+
+```
+./bin/guard
+```
+
+
+Happy Hacking
