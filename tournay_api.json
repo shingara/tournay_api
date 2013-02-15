@@ -1,0 +1,20 @@
+{
+  "rbenv": {
+    "rubies": [
+      "1.9.3-p385"
+    ],
+    "global": "1.9.3-p385",
+    "gems" : {
+      "1.9.3-p385": [
+        { "name": "bundler" }
+      ]
+    }
+  },
+  "run_list": [
+    "apt",
+    "mongodb::10gen_repo",
+    "mongodb::default",
+    "ruby_build",
+    "rbenv::system"
+  ]
+}
