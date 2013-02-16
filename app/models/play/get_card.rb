@@ -17,6 +17,12 @@ class Play::GetCard
     @game.neighborhood_card_of(color, level).size > 0
   end
 
+  def action
+    @player.engaged_citizens(color, level)
+  end
+
+  private
+
   def color
     Color.new(@params[:color])
   end

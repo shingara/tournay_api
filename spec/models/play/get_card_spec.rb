@@ -68,8 +68,17 @@ describe Play::GetCard do
   end
 
   describe "#action" do
-    it 'engaged citizen needed'
+    it 'engaged citizen needed' do
+      expect {
+        play_get_card.action
+      }.to change{
+        player_in_game.citizens_ready_in(Color.new(:white))
+      }.by(-2)
+    end
     it 'get a level 2 card in this color in player hand'
+    it 'extract level 2 card in game board'
+    it 'need manage 2 case when there are no card display and card display'
+
   end
 
 end

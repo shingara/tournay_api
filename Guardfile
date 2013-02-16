@@ -1,5 +1,8 @@
+
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
+
+require 'rb-inotify'
 
 guard 'rspec',
   :notification => false,

@@ -2,7 +2,16 @@ require 'models/spec_helper'
 
 describe PlayerInGame do
 
-  let(:player_in_game) { PlayerInGame.new }
+  let(:player_in_game) {
+    PlayerInGame.new(
+      :citizens => [
+        Citizen.new(:color => Color.new(:red), :engaged => false),
+        Citizen.new(:color => Color.new(:red), :engaged => false),
+        Citizen.new(:color => Color.new(:white), :engaged => false),
+        Citizen.new(:color => Color.new(:white), :engaged => false),
+      ]
+    )
+  }
 
   it { should have_field(:point).of_type(Integer) }
   it { should have_field(:denier).of_type(Integer) }
@@ -107,6 +116,23 @@ describe PlayerInGame do
     }
     it 'return the number' do
       expect(player_in_game.citizens_ready_in(Color.new(:red))).to eq 2
+    end
+  end
+
+  describe "#engaged_citizens" do
+    it 'engaged the number of citizens in this color' do
+      expect {
+        player_in_game.engaged_citizens(Color.new(:white), 2)
+      }.to change {
+        player_in_game.citizens_ready_in(Color.new(:white))
+      }.by(-2)
+    end
+    it 'not engaged citizens in other color' do
+      expect {
+        player_in_game.engaged_citizens(Color.new(:white), 2)
+      }.to_not change {
+        player_in_game.citizens_ready_in(Color.new(:red))
+      }
     end
   end
 end

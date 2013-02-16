@@ -42,4 +42,15 @@ class PlayerInGame
     citizens.where(:color => color, :engaged => false).count
   end
 
+
+  ##
+  # Engaged citizen of color and in number pass in args
+  #
+  # @param [ Color ] color the color
+  # @param [ Integer ] num the number of citizens we engaged
+  #
+  def engaged_citizens(color, num)
+    citizens.where(:color => color).limit(num).update_all(:engaged => true)
+  end
+
 end
