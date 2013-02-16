@@ -13,6 +13,8 @@ class Color
       @color = color
     when Symbol
       @color = from_sym(color)
+    when String
+      @color = from_sym(color.to_sym)
     end
   end
   attr_reader :color

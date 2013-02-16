@@ -93,4 +93,20 @@ describe PlayerInGame do
       it { expect(player_in_game.neighborhood_cards_in_place).to eq [] }
     end
   end
+
+  describe "#citizens_reader_in(color)" do
+    let(:player_in_game) {
+      PlayerInGame.new(
+        :citizens => [
+          Citizen.new(:color => Color.new(:red), :engaged => true),
+          Citizen.new(:color => Color.new(:red), :engaged => false),
+          Citizen.new(:color => Color.new(:red), :engaged => false),
+          Citizen.new(:color => Color.new(:white), :engaged => false),
+        ]
+      )
+    }
+    it 'return the number' do
+      expect(player_in_game.citizens_ready_in(Color.new(:red))).to eq 2
+    end
+  end
 end

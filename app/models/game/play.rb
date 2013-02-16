@@ -5,6 +5,7 @@ class Game::Play
   def initialize(game, params)
     @game = game
     @params = params
+    @errors = []
   end
   attr_reader :game, :errors
 
@@ -35,6 +36,10 @@ class Game::Play
   end
 
   def get_card
-    Play::GetCard.new(game, @params)
+    Play::GetCard.new(
+      game,
+      game.current_player_waiting,
+      @params
+    )
   end
 end

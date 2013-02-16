@@ -27,4 +27,19 @@ class PlayerInGame
     neighborhood_cards.where(:play => true)
   end
 
+  ##
+  # The number of citizen not engaged in color pass in args
+  #
+  # @example
+  #   player_in_game.citizens_ready_in(Color.new(:white))
+  #
+  # @param [ Color ] color the color of citizens we search
+  # @return [ Integer ] the number of citizen ready in this color
+  #
+  # @api public
+  #
+  def citizens_ready_in(color)
+    citizens.where(:color => color, :engaged => false).count
+  end
+
 end

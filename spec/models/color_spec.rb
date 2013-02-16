@@ -2,6 +2,11 @@ require 'models/spec_helper'
 
 describe Color do
 
+  describe "#initialize" do
+    it 'with string' do
+      expect(Color.new('white')).to eq Color.new(:white)
+    end
+  end
   describe "#mongoize" do
     it 'return a Integer' do
       Color.new(1).mongoize.should == 1

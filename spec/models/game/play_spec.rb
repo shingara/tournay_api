@@ -33,9 +33,12 @@ describe Game::Play do
     end
 
     context "with get_card action" do
-      context "without all params" do
+      context "with action valid" do
         let(:params) { {'player_id' => 4, :action => 'get_card' } }
-        it { expect(game_play.play).to eq false }
+        before do
+          Play::GetCard.stub(:new).with(game, game.current_player_waiting, params).and_return(mock(:valid? => true))
+        end
+        it { expect(game_play.play).to eq true }
       end
     end
 
