@@ -13,7 +13,8 @@ class Play::GetCard
   def valid?
     @params.keys.include?(:color) &&
     @params.keys.include?(:level) &&
-    @player.citizens_ready_in(color) == level
+    @player.citizens_ready_in(color) == level &&
+    @game.neighborhood_card_of(color, level).size > 0
   end
 
   def color

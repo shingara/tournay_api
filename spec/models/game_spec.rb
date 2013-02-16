@@ -43,4 +43,34 @@ describe Game do
       it { expect(game.current_player_waiting).to eq player_in_game }
     end
   end
+
+  describe "#neighborhood_card_of(color, level)" do
+    context "with card of this color and level" do
+      let(:neighborhood_card) {
+        NeighborhoodCardInGame.new(:color => Color.new(:white), :level => 2)
+      }
+      let(:game) {
+        Game.new(:neighborhood_card => [
+          neighborhood_card,
+          NeighborhoodCardInGame.new(:color => Color.new(:white), :level => 3),
+          NeighborhoodCardInGame.new(:color => Color.new(:red), :level => 2),
+        ])
+      }
+      it 'return array with the card' do
+        expect(game.neighborhood_card_of(Color.new(:white), 2)).to eq [neighborhood_card]
+      end
+    end
+
+    context "without card of this color and level" do
+      let(:game) {
+        Game.new(:neighborhood_card => [
+          NeighborhoodCardInGame.new(:color => Color.new(:white), :level => 3),
+          NeighborhoodCardInGame.new(:color => Color.new(:red), :level => 2),
+        ])
+      }
+      it 'return empty array' do
+        expect(game.neighborhood_card_of(Color.new(:white), 2)).to eq []
+      end
+    end
+  end
 end

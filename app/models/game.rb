@@ -23,4 +23,23 @@ class Game
     end
   end
 
+  ##
+  # All card of neighborhood in this game available in color and level
+  # defined
+  #
+  # @example
+  #   game.neighborhood_card_of(Color.new(:white), 2)
+  #
+  # @param [ Color ] color the color of card we want
+  # @param [ Integer ] level the level of this card we want
+  #
+  # @return [ Array<NeighborhoodCardInGame> ] the list of card in this
+  # condition
+  #
+  # @api public
+  #
+  def neighborhood_card_of(color, level)
+    neighborhood_card.where(:color => color, :level => level)
+  end
+
 end
