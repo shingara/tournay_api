@@ -20,7 +20,7 @@ describe Game do
   it { should have_field(:num_player).of_type(Integer) }
 
   it { should embed_many(:player_in_game) }
-  it { should embed_many(:neighborhood_card).of_type(NeighborhoodCardInGame) }
+  it { should embed_many(:neighborhood_cards_in_game).of_type(NeighborhoodCardInGame) }
   it { should embed_many(:event_cards_in_game).of_type(EventCardInGame) }
   it { should embed_many(:citizens).of_type(Citizen) }
   it { should embed_many(:histories).of_type(GameHistory) }
@@ -50,7 +50,7 @@ describe Game do
         NeighborhoodCardInGame.new(:color => Color.new(:white), :level => 2)
       }
       let(:game) {
-        Game.new(:neighborhood_card => [
+        Game.new(:neighborhood_cards_in_game => [
           neighborhood_card,
           NeighborhoodCardInGame.new(:color => Color.new(:white), :level => 3),
           NeighborhoodCardInGame.new(:color => Color.new(:red), :level => 2),
@@ -63,7 +63,7 @@ describe Game do
 
     context "without card of this color and level" do
       let(:game) {
-        Game.new(:neighborhood_card => [
+        Game.new(:neighborhood_cards_in_game => [
           NeighborhoodCardInGame.new(:color => Color.new(:white), :level => 3),
           NeighborhoodCardInGame.new(:color => Color.new(:red), :level => 2),
         ])

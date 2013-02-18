@@ -6,7 +6,7 @@ class Game
   field :num_player, :type => Integer, :default => 0
 
   embeds_many :player_in_game
-  embeds_many :neighborhood_card, :class_name => 'NeighborhoodCardInGame'
+  embeds_many :neighborhood_cards_in_game, :class_name => 'NeighborhoodCardInGame'
   embeds_many :event_cards_in_game, :class_name => 'EventCardInGame'
   embeds_many :citizens
   embeds_one :status, :class_name => 'GameStatus'
@@ -39,7 +39,7 @@ class Game
   # @api public
   #
   def neighborhood_card_of(color, level)
-    neighborhood_card.where(:color => color, :level => level)
+    neighborhood_cards_in_game.where(:color => color, :level => level)
   end
 
 end

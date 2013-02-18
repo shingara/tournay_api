@@ -31,7 +31,7 @@ class GameStart
 
   def add_neighborhood_card
     NeighborhoodCard.all.each do |card|
-      game.neighborhood_card.build(
+      game.neighborhood_cards_in_game.build(
         :active => false,
         :neighborhood_car_id => card.id,
         :level => card.level,

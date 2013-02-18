@@ -7,10 +7,10 @@ class EventCardInGame
   field :denier_active, :type => Integer
   field :denier_total, :type => Integer
   field :cost_in_citizen, :type => Integer
-  field :play, :type => Boolean, :default => false
+  field :player_in_game_id, :type => Moped::BSON::ObjectId
+  field :state, :type => String, :default => 'in_deck'
 
   embedded_in :game
-  embedded_in :player_in_game
 
   belongs_to :event_card
 

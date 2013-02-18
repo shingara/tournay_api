@@ -2,6 +2,18 @@ require 'models/spec_helper'
 
 describe PlayerInGame do
 
+  let(:game) {
+    Game.new(
+      :neighborhood_cards_in_game => [
+        NeighborhoodCardInGame.new,
+        NeighborhoodCardInGame.new
+      ],
+      :event_cards_in_game => [
+        EventCardInGame.new,
+        EventCardInGame.new
+      ],
+    )
+  }
   let(:player_in_game) {
     PlayerInGame.new(
       :citizens => [
@@ -9,7 +21,8 @@ describe PlayerInGame do
         Citizen.new(:color => Color.new(:red), :engaged => false),
         Citizen.new(:color => Color.new(:white), :engaged => false),
         Citizen.new(:color => Color.new(:white), :engaged => false),
-      ]
+      ],
+      :game => game
     )
   }
 
@@ -22,40 +35,36 @@ describe PlayerInGame do
 
   it { should embed_many(:citizens).of_type(Citizen) }
 
-  it { should embed_many(:neighborhood_cards).of_type(NeighborhoodCardInGame) }
-  it { should embed_many(:event_cards).of_type(EventCardInGame) }
-
   describe "#event_cards_in_hand" do
 
-    let(:event_card_played) { EventCardInGame.new(:play => true) }
-    before do
-      player_in_game.event_cards << event_card_played
-    end
 
     context "with event cards in hand" do
-      let(:event_card_in_hand) { EventCardInGame.new(:play => false) }
-      before do
-        player_in_game.event_cards << event_card_in_hand
-      end
-      it { expect(player_in_game.event_cards_in_hand).to eq [event_card_in_hand] }
+
+      let(:event_card_played) {
+        card = game.event_cards_in_game.first
+        card.player_in_game_id = player_in_game.id
+        card
+      }
+
+      it {
+        expect(player_in_game.event_cards_in_hand).to eq [event_card_played]
+      }
     end
 
     context "without event cards in hand" do
       it { expect(player_in_game.event_cards_in_hand).to eq [] }
     end
   end
+
   describe "#neighborhood_cards_in_hand" do
 
-    let(:neighborhood_card_played) { NeighborhoodCardInGame.new(:play => true) }
-    before do
-      player_in_game.neighborhood_cards << neighborhood_card_played
-    end
-
     context "with neighborhood cards in hand" do
-      let(:neighborhood_card_in_hand) { NeighborhoodCardInGame.new(:play => false) }
-      before do
-        player_in_game.neighborhood_cards << neighborhood_card_in_hand
-      end
+      let(:neighborhood_card_in_hand) {
+        card = game.neighborhood_cards_in_game.first
+        card.state = 'in_player_hand'
+        card.player_in_game_id = player_in_game.id
+        card
+      }
       it { expect(player_in_game.neighborhood_cards_in_hand).to eq [neighborhood_card_in_hand] }
     end
 
@@ -66,16 +75,13 @@ describe PlayerInGame do
 
   describe "#event_cards_in_place" do
 
-    let(:event_card_in_hand) { EventCardInGame.new(:play => false) }
-    before do
-      player_in_game.event_cards << event_card_in_hand
-    end
-
     context "with event cards in place" do
-      let(:event_card_in_place) { EventCardInGame.new(:play => true) }
-      before do
-        player_in_game.event_cards << event_card_in_place
-      end
+      let(:event_card_in_place) {
+        card = game.event_cards_in_game.first
+        card.state = 'in_place'
+        card.player_in_game_id = player_in_game.id
+        card
+      }
       it { expect(player_in_game.event_cards_in_place).to eq [event_card_in_place] }
     end
 
@@ -83,18 +89,16 @@ describe PlayerInGame do
       it { expect(player_in_game.event_cards_in_place).to eq [] }
     end
   end
+
   describe "#neighborhood_cards_in_place" do
 
-    let(:neighborhood_card_in_hand) { NeighborhoodCardInGame.new(:play => false) }
-    before do
-      player_in_game.neighborhood_cards << neighborhood_card_in_hand
-    end
-
     context "with neighborhood cards in place" do
-      let(:neighborhood_card_in_place) { NeighborhoodCardInGame.new(:play => true) }
-      before do
-        player_in_game.neighborhood_cards << neighborhood_card_in_place
-      end
+      let(:neighborhood_card_in_place) {
+        card = game.neighborhood_cards_in_game.first
+        card.state = 'in_place'
+        card.player_in_game_id = player_in_game.id
+        card
+      }
       it { expect(player_in_game.neighborhood_cards_in_place).to eq [neighborhood_card_in_place] }
     end
 

@@ -27,7 +27,7 @@ describe GameStart do
 
     it 'associate all neighborhood card' do
       game_start.create
-      expect(game_start.game.neighborhood_card.size).to eq (NeighborhoodCard.count)
+      expect(game_start.game.neighborhood_cards_in_game.size).to eq (NeighborhoodCard.count)
     end
 
     it 'made game_status associate' do

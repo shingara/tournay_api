@@ -8,23 +8,21 @@ class PlayerInGame
 
   embedded_in :game
   embeds_many :citizens
-  embeds_many :neighborhood_cards, :class_name => "NeighborhoodCardInGame"
-  embeds_many :event_cards, :class_name => 'EventCardInGame'
 
   def event_cards_in_hand
-    event_cards.where(:play => false)
+    game.event_cards_in_game.where(:player_in_game_id => self.id)
   end
 
   def neighborhood_cards_in_hand
-    neighborhood_cards.where(:play => false)
+    game.neighborhood_cards_in_game.where(:player_in_game_id => self.id, :state => 'in_player_hand')
   end
 
   def event_cards_in_place
-    event_cards.where(:play => true)
+    game.event_cards_in_game.where(:player_in_game_id => self.id, :state => 'in_place')
   end
 
   def neighborhood_cards_in_place
-    neighborhood_cards.where(:play => true)
+    game.neighborhood_cards_in_game.where(:player_in_game_id => self.id, :state => 'in_place')
   end
 
   ##
