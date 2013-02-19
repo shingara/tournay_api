@@ -114,7 +114,8 @@ describe Play::GetCard do
         expect {
           play_get_card.action
         }.to change {
-          game.neighborhood_cards_in_game.find(neighborhood_cards.first.id).in_player_hand?
+          card = game.neighborhood_cards_in_game.find(neighborhood_cards.first.id)
+          card.in_player_hand? && card.player_in_game_id == player_in_game.id
         }.from(false).to(true)
       end
 
@@ -124,9 +125,39 @@ describe Play::GetCard do
         }.to change {
           game.neighborhood_cards_in_game.find(neighborhood_cards[1].id).visible_in_deck?
         }.from(false).to(true)
-
       end
 
+    end
+
+    shared_examples_for 'get two new card in deck' do
+      it 'get two card in waiting_draw status'
+      context "with crieur public raise" do
+        it 'get two card in waiting_draw status not on crieur public'
+        it 'get crieur public visible'
+        context "with no previous ending game raise" do
+          it 'not change game end'
+        end
+
+        context "with last ending game" do
+          it 'change game end'
+        end
+      end
+    end
+
+    context "without card to see by player" do
+      context "with card visible on deck" do
+        context "with user get card visible on deck" do
+          it 'get card in player hand'
+          it 'no card visible'
+        end
+        context "with user get hidden card in deck" do
+          it 'visible card get back to deck'
+          it 'get two card in waiting_draw status'
+        end
+      end
+      context "without card visible on deck" do
+        it_should_behave_like 'get two new card in deck'
+      end
     end
     it 'get a level 2 card in this color in player hand'
     it 'need manage 2 case when there are no card display and card display'
