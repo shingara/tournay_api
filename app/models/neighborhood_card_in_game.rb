@@ -1,3 +1,5 @@
+require 'state_machine'
+
 class NeighborhoodCardInGame
   include Mongoid::Document
 
@@ -11,40 +13,28 @@ class NeighborhoodCardInGame
 
   embedded_in :game
 
-  def wait_draw
-    self.state = 'waiting_draw' if in_deck?
+  state_machine :state, :action => nil, :initial => :in_deck do
+    state :in_deck
+    state :waiting_draw
+    state :visible_in_deck
+    state :in_player_hand
+
+    event :wait_draw do
+      transition [:in_deck] => :waiting_draw
+    end
+
+    event :get_in_player_hand do
+      transition [:waiting_draw] => :in_player_hand
+    end
+
+    event :back_visible_in_deck do
+      transition [:waiting_draw] => :visible_in_deck
+    end
   end
 
-  def get_back_in_deck
-    self.state = 'visible_in_deck' if waiting_draw?
-  end
-
-  def in_deck?
-    self.state == 'in_deck'
-  end
-
-  def waiting_draw?
-    self.state == 'waiting_draw'
-  end
-
-  def get_in_player_hand
-    self.state = 'in_player_hand' if waiting_draw?
-  end
 
   def player=(player)
     self.player_in_game_id = player.id
-  end
-
-  def in_player_hand?
-    self.state == 'in_player_hand'
-  end
-
-  def back_visible_in_deck
-    self.state = 'visible_in_deck' if waiting_draw?
-  end
-
-  def visible_in_deck?
-    self.state == 'visible_in_deck'
   end
 
 end

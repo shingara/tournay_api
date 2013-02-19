@@ -39,7 +39,7 @@ describe NeighborhoodCardInGame do
       end
     end
 
-    describe "#get_back_in_deck" do
+    describe "#back_visible_in_deck" do
 
       let(:neighborhood_card_in_game) {
         NeighborhoodCardInGame.new(:state => :waiting_draw)
@@ -47,7 +47,7 @@ describe NeighborhoodCardInGame do
 
       it 'move from :waiting_draw state' do
         expect{
-          neighborhood_card_in_game.get_back_in_deck
+          neighborhood_card_in_game.back_visible_in_deck!
         }.to change {
           neighborhood_card_in_game.state
         }.from("waiting_draw").to("visible_in_deck")
@@ -60,7 +60,7 @@ describe NeighborhoodCardInGame do
 
         it 'state failed' do
           expect {
-            neighborhood_card_in_game.get_back_in_deck
+            neighborhood_card_in_game.back_visible_in_deck
           }.to_not change { neighborhood_card_in_game.state }
         end
       end

@@ -11,6 +11,7 @@ gem 'virtus', :require => false
 gem 'equalizer', :require => false
 gem 'rabl', :require => false
 gem 'draper', :require => false
+gem 'state_machine', :require => false
 
 group :test, :development do
   gem 'rspec-rails', :require => false
