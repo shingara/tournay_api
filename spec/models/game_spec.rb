@@ -29,6 +29,8 @@ describe Game do
   it { should embed_many(:event_cards_in_game).of_type(EventCardInGame) }
   it { should embed_many(:citizens).of_type(Citizen) }
   it { should embed_many(:histories).of_type(GameHistory) }
+  it { should embed_many(:crieurs).of_type(Crieur) }
+
   it { should embed_one(:status).of_type(GameStatus) }
 
   it { expect(Game.new(:num_player => 1)).to_not be_valid }

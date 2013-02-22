@@ -9,8 +9,10 @@ class Game
   embeds_many :neighborhood_cards_in_game, :class_name => 'NeighborhoodCardInGame'
   embeds_many :event_cards_in_game, :class_name => 'EventCardInGame'
   embeds_many :citizens
-  embeds_one :status, :class_name => 'GameStatus'
   embeds_many :histories, :class_name => 'GameHistory'
+  embeds_many :crieurs, :class_name => 'Crieur'
+
+  embeds_one :status, :class_name => 'GameStatus'
 
   validates_numericality_of :num_player, :greater_than => 1
   validates_presence_of :status
