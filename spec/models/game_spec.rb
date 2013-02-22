@@ -9,6 +9,11 @@ describe Game do
   let(:player_in_game) { PlayerInGame.new(:external_id => 4) }
   let(:game) {
     Game.new(
+      :neighborhood_cards_in_game => [
+        NeighborhoodCardInGame.new,
+        NeighborhoodCardInGame.new,
+        NeighborhoodCardInGame.new
+      ],
       :player_in_game => [
         PlayerInGame.new(:external_id => 3),
         player_in_game
@@ -70,6 +75,31 @@ describe Game do
       }
       it 'return empty array' do
         expect(game.neighborhood_card_of(Color.new(:white), 2)).to eq []
+      end
+    end
+  end
+
+  describe "#card_waiting_draw" do
+    context 'without waiting_draw card' do
+      it 'return empty' do
+        expect(game.card_waiting_draw).to be_empty
+      end
+    end
+
+    context "with waiting_draw card" do
+      let!(:waiting_draw_card_1) {
+        card = game.neighborhood_cards_in_game.first
+        card.wait_draw!
+        card
+      }
+
+      let!(:waiting_draw_card_2) {
+        card = game.neighborhood_cards_in_game.last
+        card.wait_draw!
+        card
+      }
+      it 'get all waiting_draw_card' do
+        expect(game.card_waiting_draw).to eq [waiting_draw_card_1, waiting_draw_card_2]
       end
     end
   end

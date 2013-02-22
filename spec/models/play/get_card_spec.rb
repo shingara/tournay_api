@@ -2,10 +2,18 @@ require 'fabricators/card_fabricator'
 require 'spec_helper'
 
 describe Play::GetCard do
+  let(:neighborhood_cards) {
+    [
+      NeighborhoodCardInGame.new(:color => Color.new(:white), :level => 2),
+      NeighborhoodCardInGame.new(:color => Color.new(:white), :level => 2),
+      NeighborhoodCardInGame.new(:color => Color.new(:white), :level => 2),
+      NeighborhoodCardInGame.new(:color => Color.new(:red), :level => 2),
+      NeighborhoodCardInGame.new(:color => Color.new(:red), :level => 2),
+      NeighborhoodCardInGame.new(:color => Color.new(:red), :level => 2)
+    ]
+  }
   let(:game) {
-    Game.new(:neighborhood_cards_in_game => [
-      NeighborhoodCardInGame.new(:color => Color.new(:white), :level => 2)
-    ])
+    Game.new(:neighborhood_cards_in_game => neighborhood_cards)
   }
   let(:citizens) {
       [
@@ -72,27 +80,19 @@ describe Play::GetCard do
   end
 
   describe "#action" do
+
+    let(:params) {
+      {:color => 'white', :level => 2, :card_id => neighborhood_cards.first.id.to_s }
+    }
+
     context "with card to see by player" do
 
-      let(:params) {
-        {:color => 'white', :level => 2, :card_id => neighborhood_cards.first.id.to_s }
-      }
       let(:neighborhood_cards) {
         cards = CardFabricator.new.create_neighborhood_in_game(2)
         cards.each {|c| c.state = 'waiting_draw' }
         cards
       }
 
-      let(:player_in_game) {
-        PlayerInGame.new(
-          :citizens => citizens,
-          :neighborhood_cards_to_see => neighborhood_cards
-        )
-      }
-
-      let(:game) {
-        Game.new(:neighborhood_cards_in_game => neighborhood_cards)
-      }
 
       it 'engaged citizen needed' do
         expect {
@@ -130,7 +130,14 @@ describe Play::GetCard do
     end
 
     shared_examples_for 'get two new card in deck' do
-      it 'get two card in waiting_draw status'
+      it 'get two card in waiting_draw status' do
+        expect {
+          play_get_card.action
+        }.to change {
+          game.card_waiting_draw.count
+        }.from(0).to(2)
+      end
+
       context "with crieur public raise" do
         it 'get two card in waiting_draw status not on crieur public'
         it 'get crieur public visible'

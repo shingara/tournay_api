@@ -18,10 +18,14 @@ class Play::GetCard
   end
 
   def action
-    @player.engaged_citizens(color, level)
-    card_choose.player = @player
-    card_choose.get_in_player_hand
-    card_not_choose.map(&:back_visible_in_deck)
+    unless @game.card_waiting_draw.empty?
+      @player.engaged_citizens(color, level)
+      card_choose.player = @player
+      card_choose.get_in_player_hand
+      card_not_choose.map(&:back_visible_in_deck)
+    else
+      extract_card_in_wait
+    end
   end
 
   private
@@ -51,6 +55,12 @@ class Play::GetCard
 
   def level
     @params[:level].to_i
+  end
+
+  def extract_card_in_wait
+    nc = @game.neighborhood_card_of(color, level).where(:state => 'in_deck')
+    card_in_wait = nc.sample(2)
+    card_in_wait.map(&:wait_draw!)
   end
 
 end

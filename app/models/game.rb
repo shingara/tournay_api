@@ -42,4 +42,8 @@ class Game
     neighborhood_cards_in_game.where(:color => color, :level => level)
   end
 
+  def card_waiting_draw
+    neighborhood_cards_in_game.where(:state => 'waiting_draw')
+  end
+
 end
