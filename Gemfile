@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'railties', :require => false
+gem 'railties', :require => false, :git => 'git://github.com/rails/rails.git'
 gem 'rails-api', :require => false
 
 gem 'json', :require => false
 gem 'rake', :require => false
 
-gem 'mongoid', :require => false
-gem 'virtus', :require => false
+gem 'mongoid', :require => false, :git => 'git://github.com/mongoid/mongoid.git'
+# waiting the release 0.6.x to fix it
+gem 'virtus', :require => false, :git => 'git://github.com/solnic/virtus.git'
 gem 'equalizer', :require => false
 gem 'rabl', :require => false
 gem 'draper', :require => false

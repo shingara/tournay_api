@@ -1,6 +1,6 @@
 ##
 #
-class Actions::GetDenierByFillNeighborhood < Action
+class Actions::GetDenierByEmptyNeighborhood < Action
 
   field :num, :type => Integer
 
