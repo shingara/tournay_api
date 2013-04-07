@@ -18,6 +18,7 @@ group :test, :development do
   gem 'rspec-rails', :require => false
   gem 'mongoid-rspec', :require => false
   gem 'virtus-rspec', :require => false
+  gem 'coveralls', :require => false
 end
 
 group :development do
