@@ -2,6 +2,8 @@ language: ruby
 before_install: gem install bundler
 script: "bundle exec rspec spec"
 services: mongodb
+env:
+  - COVERAGE=true
 rvm:
   - 1.9.3
   - 2.0.0
