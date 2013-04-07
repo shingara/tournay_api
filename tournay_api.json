@@ -10,6 +10,9 @@
       ]
     }
   },
+  "ruby_build": {
+    "upgrade": true
+  },
   "run_list": [
     "apt",
     "mongodb::10gen_repo",

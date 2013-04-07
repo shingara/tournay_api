@@ -7,10 +7,18 @@ This game is Pearl Games
 ## Development ##
 
 This developement is do on a virtual machine manage by vagrant and
-chef-solo. You can prepare the installation by
+chef-solo. You can prepare the installation by installing Vagrant on
+your system by downloading from : http://downloads.vagrantup.com/
+
+Install Berkshelf
 
 ```
-bundle install --gemfile=Gemfile.vagrant
+gem install berkshelf-vagrant
+vagrant plugin install berkshelf-vagrant
+```
+
+Start the virtual machine
+```
 vagrant up
 vagrant ssh
 cd /vagrant
