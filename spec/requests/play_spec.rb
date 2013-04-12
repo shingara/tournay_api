@@ -103,6 +103,23 @@ describe "Play" do
       }
     ]
 
+    get(game_links['can_play']['href'])
+    expect(response.body).to eq({
+      'get_card' => [
+        {'level' => 1, 'color' => 'red'},
+        {'level' => 2, 'color' => 'red'},
+        {'level' => 3, 'color' => 'red'},
+        {'level' => 1, 'color' => 'white'},
+        {'level' => 2, 'color' => 'white'},
+        {'level' => 3, 'color' => 'white'},
+        {'level' => 1, 'color' => 'yellow'},
+        {'level' => 2, 'color' => 'yellow'},
+        {'level' => 3, 'color' => 'yellow'},
+      ],
+      'active_neighborhood' => [],
+      'use_citizen' => ['red', 'white', 'yello']
+    })
+
     # start player 1
     post game_links['play']['href'], {
       :player_id => '3',

@@ -18,6 +18,10 @@ class GameApiDecorator < Draper::Decorator
         'href' => h.play_game_url(model.id),
         'method' => 'post',
         'params' => ['player_id', 'action', 'color', 'level']
+      },
+      'can_play' => {
+        'href' => h.can_play_game_url(model.id),
+        'method' => 'get',
       }
     }
   end

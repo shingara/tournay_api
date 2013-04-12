@@ -18,6 +18,10 @@ class GamesController < ApplicationController
     end
   end
 
+  def can_play
+    render :json => {}
+  end
+
   def add_player
     add_player = Game::AddPlayer.new(game, add_player_params)
     add_player.execute
